@@ -6,7 +6,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
 
-
 // HTML endpoints
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
