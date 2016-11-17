@@ -1,6 +1,6 @@
 
 
- /* - - - Temp Hardcoded Trail Data - - - */
+  /* - - - Temp Hardcoded Trail Data - - - */
   var trailList = [{
     name: 'Joaquin Miller Park',
     rating: 4.5,
@@ -9,10 +9,10 @@
     experienceLevel: "Hardcore",
     latitude: 37.809706,
     longitude: -122.183235,
-    comments: "I like this place a lot, too many hikers though" // DK: Temp, will replace with array
+    comments: "I like this place a lot, too many hikers though" // DK: TODO Temp, will replace with array
   }];
 
-  /* - - - Removes Trails from the db and replaces with seed info- - - */
+  /* - - - Removes Trails from the db and replaces with seed info - - - */
   db.Trails.remove({}, function( err, trails ) {
     db.Trails.create(trailList, funtion ( err, trails ) {
       if (err) {
