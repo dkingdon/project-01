@@ -1,48 +1,16 @@
-/* - - connection test - - */
 body {
-  background-color: #77ccee;
+  text-align: center;
 }
-
 
 .container {
-  width: 1200px;
-  text-align: center;
-  display: block;
   border: 1px solid black;
-}
-
-
-.jumbotron {
-  background-color: grey;
-  color: white;
-  border: 1px solid black;
-  /*background: url(http://packsmalllivebig.com/wp-content/uploads/2015/05/Mountain-Bike-Trail-header.jpg) no-repeat center center;*/
-}
-
-.row {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#results-panel {
-  height: 500px;
-
 }
 
 .col-md-4 {
   border: 1px solid black;
-  background-color: white;
-  float: left;
-  margin: 10px auto 10px auto;
-  width: 33.3333%;
-  color: black;
+  margin-left: auto;
 }
 
 .col-md-8 {
   border: 1px solid black;
-  background-color: white;
-  margin: 10px auto 10px auto;
-  float: right;
-  width: 63.6666%;
-  color: black;
 }
