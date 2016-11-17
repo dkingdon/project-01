@@ -11,10 +11,9 @@
     <link rel="stylesheet" href="styles/styles.css">
 
     <!-- VENDOR SCRIPTS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.amd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-
     <!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
   </head>
@@ -36,52 +35,18 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4 col-sm-12" id="scroll-box">
-          <h3>Joaquin Miller Park</h3>
-          <p><strong>Rating:</strong> 4.5</p>
-          <p><strong>Popular Trail:</strong> Cinderella</p>
-          <p><strong>Address:</strong> 3590 Sanborn Dr., Oakland, CA 94602</p>
-          <p><strong>Comments:</strong> <br/>
-          like this place a lot, too many hikers though
-          </p>
-            <!-- need to think how we will display comments  -->
-          <div class="underline"></div>
-
-          <h3>Joaquin Miller Park</h3>
-          <p><strong>Rating:</strong> 4.5</p>
-          <p><strong>Popular Trail:</strong> Cinderella</p>
-          <p><strong>Address:</strong> 3590 Sanborn Dr., Oakland, CA 94602</p>
-          <p><strong>Comments:</strong> <br/>
-          like this place a lot, too many hikers though
-          </p>
-            <!-- need to think how we will display comments  -->
-          <div class="underline"></div>
-
-          <h3>Joaquin Miller Park</h3>
-          <p><strong>Rating:</strong> 4.5</p>
-          <p><strong>Popular Trail:</strong> Cinderella</p>
-          <p><strong>Address:</strong> 3590 Sanborn Dr., Oakland, CA 94602</p>
-          <p><strong>Comments:</strong> <br/>
-          like this place a lot, too many hikers though
-          </p>
-            <!-- need to think how we will display comments  -->
-          <div class="underline"></div>
-          <!-- Handlebars -->
-        <!-- <script id="result-template" type="text/x-handlebars-template"> -->
-          <!-- #Each / dataPath -->
+        <div id="trail-target" class="col-md-4 col-sm-12">
+        <script id="result-template" type="text/x-handlebars-template">
           <h3>{{name}}</h3>
-          <p><strong>Rating: </strong>{{rating}}</p>
+           <p><strong>Rating: </strong>{{rating}}</p>
           <p><strong>Popular Trail: </strong>{{popularTrail}}</p>
           <p><strong>Address: </strong> {{address}}</p>
           <p><strong>Comments: </strong> <br/>
-          {{comment[0]}} <br/>
-          {{comment[1]}}
-          </p>
+           Comment<br/>
+         </p>
             <!-- need to think how we will display comments  -->
           <div class="underline"></div>
-          <!-- End each -->
-        <!-- </script> -->
-
+        </script>
         </div>
         <div class="col-md-8 col-sm-12">
           <div id="map-pannel">
@@ -89,12 +54,10 @@
           </div>
        </div>
       </div>
-
       <hr>
-
-      <footer>
-        <p>some text here</p>
-      </footer>
+    <footer>
+    <p>some text here</p>
+    </footer>
     </div>
 
   </body>
