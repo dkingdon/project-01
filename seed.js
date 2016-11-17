@@ -1,6 +1,7 @@
 
+var db = require("./models");
 
- /* - - - Temp Hardcoded Trail Data - - - */
+  /* - - - Temp Hardcoded Trail Data - - - */
   var trailList = [{
     name: 'Joaquin Miller Park',
     rating: 4.5,
@@ -13,11 +14,11 @@
   }];
 
   /* - - - Removes Trails from the db and replaces with seed info- - - */
-  db.Trails.remove({}, function( err, trails ) {
-    db.Trails.create(trailList, funtion ( err, trails ) {
+  db.Trail.remove({}, function( err, trails ) {
+    db.Trail.create(trailList, funtion ( err, trails) {
       if (err) {
         console.log(err);
       }
-      console.log( 'created ', trails.length, ' trails');
+      console.log( 'Dancsy has created ', trails.length, 'trails');
     })
   })
