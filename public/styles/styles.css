@@ -3,11 +3,24 @@ body {
 
 .jumbotron {
   text-align: center;
-  /*background: url(http://www.oldcreeklodgegatlinburg.com/wp-content/uploads/2016/01/hikingtrail.jpg) no-repeat center center;*/
+  background: url(http://www.hikingphoto.com/wp-content/uploads/2012/09/l7c4786-edit1.jpg) no-repeat center center;
+  background-size: cover;
+  color: white;
+  text-shadow:1px 0px 3px gray;
 }
 
-.container {
+/*.container {
   border: 1px solid black;
+}*/
+
+p {
+  margin: 0 auto 0 auto;
+}
+
+h3 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  text-align: center;
 }
 
 .row {
@@ -17,7 +30,6 @@ body {
 
 
 .col-md-4 {
-  border: 1px solid black;
   margin: 10px auto 10px auto;
   width: 33.3333%;
   float: left;
@@ -29,15 +41,14 @@ body {
   margin-right: auto;
 }
 
-/*#scroll-box(@direction: vertical){
-    height: 100%;
-    overflow-y: scroll; NOTE not working
-    overflow: auto;
-}*/
+#reset-btn {
+  text-align: center;
+}
 
 #scroll-box {
   max-height: 500px;
   overflow-y: scroll;
+  border: 1px solid black;
 }
 
 .col-md-8 {
@@ -47,7 +58,3 @@ body {
   float: right;
   /*background: url(public/images/tempMap.png); */
 }
-
-/*footer {
-  position: fixed;
-}*/

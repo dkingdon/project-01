@@ -36,8 +36,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4" id="scroll-box">
-          <h3>Joaquin Miller Park</h2>
+        <div class="col-md-4 col-sm-12" id="scroll-box">
+          <h3>Joaquin Miller Park</h3>
           <p><strong>Rating:</strong> 4.5</p>
           <p><strong>Popular Trail:</strong> Cinderella</p>
           <p><strong>Address:</strong> 3590 Sanborn Dr., Oakland, CA 94602</p>
@@ -47,7 +47,7 @@
             <!-- need to think how we will display comments  -->
           <div class="underline"></div>
 
-          <h3>Joaquin Miller Park</h2>
+          <h3>Joaquin Miller Park</h3>
           <p><strong>Rating:</strong> 4.5</p>
           <p><strong>Popular Trail:</strong> Cinderella</p>
           <p><strong>Address:</strong> 3590 Sanborn Dr., Oakland, CA 94602</p>
@@ -57,7 +57,7 @@
             <!-- need to think how we will display comments  -->
           <div class="underline"></div>
 
-          <h3>Joaquin Miller Park</h2>
+          <h3>Joaquin Miller Park</h3>
           <p><strong>Rating:</strong> 4.5</p>
           <p><strong>Popular Trail:</strong> Cinderella</p>
           <p><strong>Address:</strong> 3590 Sanborn Dr., Oakland, CA 94602</p>
@@ -66,22 +66,27 @@
           </p>
             <!-- need to think how we will display comments  -->
           <div class="underline"></div>
-
-          <h3>Joaquin Miller Park</h2>
-          <p><strong>Rating:</strong> 4.5</p>
-          <p><strong>Popular Trail:</strong> Cinderella</p>
-          <p><strong>Address:</strong> 3590 Sanborn Dr., Oakland, CA 94602</p>
-          <p><strong>Comments:</strong> <br/>
-          like this place a lot, too many hikers though
+          <!-- Handlebars -->
+        <!-- <script id="result-template" type="text/x-handlebars-template"> -->
+          <!-- #Each / dataPath -->
+          <h3>{{name}}</h3>
+          <p><strong>Rating: </strong>{{rating}}</p>
+          <p><strong>Popular Trail: </strong>{{popularTrail}}</p>
+          <p><strong>Address: </strong> {{address}}</p>
+          <p><strong>Comments: </strong> <br/>
+          {{comment[0]}} <br/>
+          {{comment[1]}}
           </p>
             <!-- need to think how we will display comments  -->
           <div class="underline"></div>
+          <!-- End each -->
+        <!-- </script> -->
 
         </div>
-        <div class="col-md-8">
-          <h2>Hello Map</h2>
-            <div id="map-pannel">
-            </div>
+        <div class="col-md-8 col-sm-12">
+          <div id="map-pannel">
+            <img src="images/tempMap.png" height="500" width="700" />
+          </div>
        </div>
       </div>
 
