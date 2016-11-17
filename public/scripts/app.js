@@ -14,11 +14,12 @@ $.ajax({
 }); //document closer TODO: remove before production
 
 function handleSuccess(jsonData){
-  console.log('? this is >> ', jsonData);
-  var trails = jsonData.trails[0];
-  // console.log('latitude is ' + json.trails[0].latitude);
-  // console.log('latitude is ' + json.trails[0].longitude);
-  renderTrails(trails)
+    console.log('? this is >> ', jsonData);
+    var trails = jsonData.trails;
+    trails.forEach(function (trailIndex){
+    renderTrails(trailIndex)
+    });
+
 }
 
 function handleError(){

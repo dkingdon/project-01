@@ -78,7 +78,7 @@ var db = require("./models");
     rating: 4.6,
     address: '17600 Lake Chabot Rd, Castro Valley, CA 94546',
     popularTrail: 'Brandon Trail',
-    experienceLevel: 'beginner'
+    experienceLevel: 'beginner',
     latitude: 37.7166066,
     longitude: -122.1029251,
     comments: "Fun ride, all fireroads and some paved paths around the lake"
