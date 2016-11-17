@@ -1,16 +1,53 @@
 body {
+}
+
+.jumbotron {
   text-align: center;
+  /*background: url(http://www.oldcreeklodgegatlinburg.com/wp-content/uploads/2016/01/hikingtrail.jpg) no-repeat center center;*/
 }
 
 .container {
   border: 1px solid black;
 }
 
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 .col-md-4 {
   border: 1px solid black;
+  margin: 10px auto 10px auto;
+  width: 33.3333%;
+  float: left;
+}
+
+.underline {
+  border-bottom: 2px solid grey;
   margin-left: auto;
+  margin-right: auto;
+}
+
+/*#scroll-box(@direction: vertical){
+    height: 100%;
+    overflow-y: scroll; NOTE not working
+    overflow: auto;
+}*/
+
+#scroll-box {
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
 .col-md-8 {
   border: 1px solid black;
+  margin: 10px auto 10px auto;
+  width: 63.6666%;
+  float: right;
+  /*background: url(public/images/tempMap.png); */
 }
+
+/*footer {
+  position: fixed;
+}*/
