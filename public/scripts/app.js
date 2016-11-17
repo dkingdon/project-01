@@ -1,5 +1,6 @@
 console.log("app.js is connected");
 
+
 $(document)
   .ready(function(){
     console.log('DOM is ready!');
@@ -11,6 +12,12 @@ $(document)
       success: handleSuccess,
       error: handleError
     })
+
+    var $resetButton = $('#reset-btn');
+    $resetButton.on('click', function(){
+      location.reload();
+    });
+
  }); //document closer TODO: remove before production
 
   function handleSuccess(jsonData){

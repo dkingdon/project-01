@@ -4,6 +4,7 @@ var db = require("./models");
   /* - - - Temp Hardcoded Trail Data - - - */
 
   var trailsList = [{
+
     name: 'Joaquin Miller Park',
     rating: 4.5,
     address: "3590 Sanborn Dr., Oakland, CA 94602",
