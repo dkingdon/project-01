@@ -27,8 +27,8 @@ function handleError(){
 
 // fn that handles compiling for handlebars
 function renderTrails(trail){
-  var source = $('#result-template').html();
-  var template = Handlebars.compile(source);
-  var trail = template(trail);
-  $('#trail-target').prepend(trail);
+  var source = $('#result-template').html(),
+   template = Handlebars.compile(source),
+   trail = template(trail);
+   $('#trail-target').prepend(trail);
 }
