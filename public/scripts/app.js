@@ -1,21 +1,32 @@
 console.log("app.js is connected");
 
 $(document).ready(function(){
-console.log('DOM is ready! ');
+console.log('DOM is ready!');
 
-// $.ajax({
-//   method: 'GET',
-//   url: '',
-//   type: 'jsonData'
-//   success: handleSuccess,
-//   error: handleError
-//
-// }) // ajax closer
+$.ajax({
+    method: 'GET',
+    url: '/api/trails',
+    type: 'json',
+    success: handleSuccess,
+    error: handleError
+})
 
 }); //document closer TODO: remove before production
 
+function handleSuccess(json){
+  console.log('? this is >> '+ json.trails[0].name);
+  console.log('latitude is ' + json.trails[0].latitude);
+  console.log('latitude is ' + json.trails[0].longitude);
+}
 
-// function handleSuccess(jsonData){
-//   console.log(jsonData);
-// };
-//
+function handleError(){
+  console.log('Ajax'+'"GET"'+' ERROR!');
+}
+
+// fn that handles compiling for handlebars
+function renderTrails(trail){
+  source = $('#trail-template').html
+  template = Handlebars.compile(source)
+  var trail = template(trail)
+  $('#trail-target').prepend(trail)
+}
