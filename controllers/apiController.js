@@ -5,7 +5,8 @@ function index(req, res) {
     base_url: null,
     endpoints: [
       {method: "GET", path: "/api", description: ""},
-      {method: "GET", path: "/api/trails", description: ""}
+      {method: "GET", path: "/api/trails", description: ""},
+      {method: "POST", path: "/api/comments", description: ""}
     ]
   });
 }
