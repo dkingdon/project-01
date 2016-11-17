@@ -34,45 +34,45 @@ var db = require("./models");
     comments: "Park mixed with both smooth and technical trails"
   },
   {
-    name: 'demo park'
-    rating:
-    address:
-    popularTrail:
-    experienceLevel:
-    latitude:
-    longitude:
-    comments:
+    name: 'Demo Forest',
+    rating: 4.5,
+    address: 'Highland Way, Los Gatos, CA 95033',
+    popularTrail: 'Flow Trail',
+    experienceLevel: 'Hardcore',
+    latitude: 37.0824064,
+    longitude: -121.8550676,
+    comments: "Epic flow trail that goes on for days. One of the bay's best rides"
   },
-  {
-    name:
-    rating:
-    address:
-    popularTrail:
-    experienceLevel:
-    latitude:
-    longitude:
-    comments:
-  },
-  {
-    name:
-    rating:
-    address:
-    popularTrail:
-    experienceLevel:
-    latitude:
-    longitude:
-    comments:
-  },
-  {
-    name:
-    rating:
-    address:
-    popularTrail:
-    experienceLevel:
-    latitude:
-    longitude:
-    comments:
-  },
+  // {
+  //   name:
+  //   rating:
+  //   address:
+  //   popularTrail:
+  //   experienceLevel:
+  //   latitude:
+  //   longitude:
+  //   comments:
+  // },
+  // {
+  //   name:
+  //   rating:
+  //   address:
+  //   popularTrail:
+  //   experienceLevel:
+  //   latitude:
+  //   longitude:
+  //   comments:
+  // },
+  // {
+  //   name:
+  //   rating:
+  //   address:
+  //   popularTrail:
+  //   experienceLevel:
+  //   latitude:
+  //   longitude:
+  //   comments:
+  // },
   {
     name: 'Lake Chabot Park',
     rating: 4.6,
@@ -87,7 +87,7 @@ var db = require("./models");
     name: 'China Camp',
     rating: 4.2,
     address: '100 China Camp Village Rd, San Rafael, CA 94901',
-    popularTrail: 'Bay View Trail'
+    popularTrail: 'Bay View Trail',
     experienceLevel: 'intermediate',
     latitude: 38.0066978,
     longitude: -122.4961469,
