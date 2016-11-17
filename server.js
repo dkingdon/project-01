@@ -11,21 +11,16 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+// Json API endpoints
+app.get('/api', controllers.api.index);
+app.get('/api/trails', controllers.trails.index);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// listen on port 3000
+//  Server listening on port 3000
 app.listen(process.env.PORT || 3000, function () {
   console.log('Yea boi! Express server is running on http://localhost:3000/');
 });
+
+
+trailsController
+apiController
