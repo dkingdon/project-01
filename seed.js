@@ -19,6 +19,7 @@ var db = require("./models");
   db.Trail.remove({}, function( err, trails ) {
     db.Trail.create(trailsList, function( err, trails) {
       if (err) { console.log(err); }
+      console.log(trails);
       console.log( 'Dancsy has created ' + trails.length, 'trails');
       process.exit();
     })

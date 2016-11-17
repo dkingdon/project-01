@@ -3,20 +3,18 @@ console.log("app.js is connected");
 $(document).ready(function(){
 console.log('DOM is ready!');
 
-// $.ajax({
-//   method: 'GET',
-//   url: '/api/trails',
-//   type: 'jsonData'
-//   success: handleSuccess,
-//   error: handleError
-//
-// }) // ajax closer
+$.ajax({
+    method: 'GET',
+    url: '/api/trails',
+    type: 'json',
+    success: handleSuccess,
+    error: handleError
+})
 
 }); //document closer TODO: remove before production
 
-
-function handleSuccess(jsonData){
-  console.log('? this is >>'+ jsonData);
+function handleSuccess(json){
+  console.log('? this is >>'+ json.trails[0].name);
 }
 
 function handleError(){
