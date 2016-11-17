@@ -14,7 +14,9 @@ $.ajax({
 }); //document closer TODO: remove before production
 
 function handleSuccess(json){
-  console.log('? this is >>'+ json.trails[0].name);
+  console.log('? this is >> '+ json.trails[0].name);
+  console.log('latitude is ' + json.trails[0].latitude);
+  console.log('latitude is ' + json.trails[0].longitude);
 }
 
 function handleError(){
