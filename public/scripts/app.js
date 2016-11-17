@@ -29,4 +29,4 @@ function renderTrails(trail){
   template = Handlebars.compile(source)
   var trail = template(trail)
   $('#trail-target').prepend(trail)
-};
+}
