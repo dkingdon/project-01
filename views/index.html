@@ -18,6 +18,8 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"></script>
     <!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
 
   <body>
@@ -40,16 +42,9 @@
           <p>Please select the difficulty of the trails you would like to see</p>
         </div>
         <div class="modal-footer">
-          <div class="row">
-            <div class="col-md-3">
-              <button type="button" class="btn btn-success modal-btn">Beginner</button>
-            </div>
-            <div class="col-md-3">
-              <button type="button" class="btn btn-warning modal-btn">Intermediate</button>
-            </div>
-            <div class="col-md-3">
-              <button type="button" class="btn btn-danger modal-btn">Hardcore</button>
-            </div>
+              <button id="beginner-btn" type="button" class="btn btn-success modal-btn">Beginner</button>
+              <button id="intermediate-btn" type="button" class="btn btn-warning modal-btn">Intermediate</button>
+              <button id="Hardcore-btn" type="button" class="btn btn-danger modal-btn">Hardcore</button>
           </div>
         </div>
       </div>
@@ -63,22 +58,22 @@
         </div>
       </div>
       <div class="row">
-        <div id="trail-target" class="col-md-4 col-sm-12">
+        <div id="trail-target" class="col-md-4">
         <script id="result-template" type="text/x-handlebars-template">
           <h3>{{name}}</h3>
            <p><strong>Rating: </strong>{{rating}}</p>
           <p><strong>Popular Trail: </strong>{{popularTrail}}</p>
           <p><strong>Address: </strong> {{address}}</p>
           <p><strong>Comments:</strong>   <br/>
-            {{comments}}
+            <em>"{{comments}}"</em>
           <br/>
-          <button type="button" class="btn btn-default btn-xs">Comment</button>
+          <!-- <button type="button" class="btn btn-default btn-xs">Comment</button> -->
          </p>
             <!-- need to think how we will display comments  -->
           <div class="underline"></div>
         </script>
         </div>
-        <div class="col-md-8 col-sm-12">
+        <div class="col-md-8">
           <div id="map">
           </div>
        </div>

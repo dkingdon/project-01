@@ -11,8 +11,8 @@ body {
 }
 
 .container {
-  /*border: 1px solid black;*/
-  margin-top: -30px;
+
+  margin-top: -20px;
 }
 
 .modal {
@@ -22,6 +22,22 @@ body {
   margin: auto;
   position: relative;
   display: table;
+  text-align: center;
+  font-family: Montserrat;
+}
+
+.modal-title {
+  font-size: 50px;
+}
+
+.modal-btn {
+  text-align: center;
+  margin-right: 45px;
+  margin-left: 45px;
+}
+
+.modal-footer {
+  text-align: center;
 }
 
 p {
@@ -40,13 +56,13 @@ h3 {
 }
 
 .col-md-4 {
-  margin: 10px auto 10px auto;
+  margin: 0px auto 5px auto;
   width: 33.3333%;
   float: left;
 }
 
 .underline {
-  border-bottom: 2px solid grey;
+  border-bottom: .5px solid lightgrey;
   margin-left: auto;
   margin-right: auto;
 }
@@ -57,7 +73,7 @@ h3 {
 }
 
 #trail-target {
-  max-height: 500px;
+  max-height: 580px;
   overflow-y: scroll;
   background-color: #ffffff;
 }
@@ -68,12 +84,12 @@ h3 {
 }
 
 .col-md-8 {
-  margin: 10px auto 10px auto;
+  margin: 0 auto 5px auto;
   width: 63.6666%;
   float: right;
   /*background: url(public/images/tempMap.png); */
 }
 
 #map {
-  height: 500px;
+  height: 580px;
 }
