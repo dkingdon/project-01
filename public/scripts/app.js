@@ -14,10 +14,6 @@ $(document)
   .ready(function(){
     console.log('DOM is ready!');
 
-    // var $resetButton = $('#reset-btn');
-    // $resetButton.on('click', function(ev){
-    //   location.reload();
-    // });
 
     /* - - - Reset opening the modal again with new text - - - */
     $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
@@ -26,9 +22,7 @@ $(document)
       $('#intro-modal').modal('show');
     });
 
-
-
-  initMap(); //initializes google map
+    initMap(); //initializes google map
 
   /* - - - Modal button action selecting beginner trails - - - */
   $('#beginner-btn').on('click', function () {
