@@ -1,4 +1,5 @@
 body {
+  background-color: #F6FAF5;
 }
 
 .jumbotron {
@@ -9,9 +10,35 @@ body {
   text-shadow:1px 0px 3px gray;
 }
 
-/*.container {
-  border: 1px solid black;
-}*/
+.container {
+  
+  margin-top: -20px;
+}
+
+.modal {
+  max-height: 180px;
+  border: 1px solid white;
+  background-color: white;
+  margin: auto;
+  position: relative;
+  display: table;
+  text-align: center;
+  font-family: Montserrat;
+}
+
+.modal-title {
+  font-size: 50px;
+}
+
+.modal-btn {
+  text-align: center;
+  margin-right: 45px;
+  margin-left: 45px;
+}
+
+.modal-footer {
+  text-align: center;
+}
 
 p {
   margin: 0 auto 0 auto;
@@ -28,33 +55,40 @@ h3 {
   margin-right: auto;
 }
 
-
 .col-md-4 {
-  margin: 10px auto 10px auto;
+  margin: 0px auto 5px auto;
   width: 33.3333%;
   float: left;
 }
 
 .underline {
-  border-bottom: 2px solid grey;
+  border-bottom: .5px solid lightgrey;
   margin-left: auto;
   margin-right: auto;
 }
 
 #reset-btn {
   text-align: center;
+  padding-bottom: -20px;
 }
 
-#scroll-box {
-  max-height: 500px;
+#trail-target {
+  max-height: 580px;
   overflow-y: scroll;
-  border: 1px solid black;
+  background-color: #ffffff;
+}
+
+.btn-xs {
+  float: right;
+  margin-top: -41px;
 }
 
 .col-md-8 {
-  border: 1px solid black;
-  margin: 10px auto 10px auto;
+  margin: 0 auto 5px auto;
   width: 63.6666%;
   float: right;
-  /*background: url(public/images/tempMap.png); */
+}
+
+#map {
+  height: 580px;
 }
