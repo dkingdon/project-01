@@ -51,7 +51,7 @@ var db = require("./models");
     popularTrail: 'Sunset Trail',
     experienceLevel: 'beginner',
     latitude: 37.868623,
-    longitude: -122.434567
+    longitude: -122.434567,
     comments: "Fun ride for the whole family. Note that you need to take the ferry to the island"
   },
   {
