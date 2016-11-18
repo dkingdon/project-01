@@ -1,5 +1,12 @@
 console.log("app.js is connected");
 
+var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 37.78, lng: -122.44},
+    zoom: 9
+   });
+ }
 
 $(document)
   .ready(function(){
@@ -22,16 +29,26 @@ $(document)
 
  }); //document closer TODO: remove before production
 
+ function handleError(){
+   console.log('Ajax'+'"GET"'+' ERROR!');
+ }
+
   function handleSuccess(jsonData){
-    var trails = jsonData.trails; // TODO: use this for map loop
-    console.log(trails[4].name);
+    var trails = jsonData.trails;
     trails.forEach(function (trailIndex){
     renderTrails(trailIndex)
     });
-  }
 
-  function handleError(){
-    console.log('Ajax'+'"GET"'+' ERROR!');
+    trails.forEach(function(trailsIndex){
+      var myLatLng = {
+      lat: trailsIndex.latitude,
+      lng: trailsIndex.longitude}
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Hello World!'
+      })
+    });
   }
 
   function renderTrails(trail){
@@ -39,12 +56,4 @@ $(document)
     template = Handlebars.compile(source),
     trail = template(trail);
     $('#trail-target').prepend(trail);
-  }
-
-  var map;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 37.78, lng: -122.44},
-    zoom: 10
-    });
   }
