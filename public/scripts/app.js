@@ -8,6 +8,7 @@ console.log("app.js is connected");
      });
    }
 
+
 $(document)
   .ready(function(){
     console.log('DOM is ready!');
@@ -20,19 +21,23 @@ $(document)
       error: handleError
     })
 
+    initMap();
+
     var $resetButton = $('#reset-btn');
     $resetButton.on('click', function(ev){
       location.reload();
-
-
-
     });
 
-  initMap();
+    var $easy = $('#beginner-btn');
+    var $meduim = $('#intermediate-btn');
+    var $hard = $('#hardcore-btn');
 
-  /* - - - Intro modal pop up upon load - - - */
-  $('#intro-modal').modal('show');
-  
+    
+
+/* - - - Intro modal pop up upon load - - - */
+    $('#intro-modal').modal('show');
+
+
 
 
 
