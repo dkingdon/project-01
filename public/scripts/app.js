@@ -2,14 +2,6 @@ console.log("app.js is connected");
 var displayResults; // Global variable for difficulty setting via button
 
 
-  var map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 37.78, lng: -122.44},
-      zoom: 9
-     });
-   }
-
 $(document)
   .ready(function(){
     console.log('DOM is ready!');
@@ -20,6 +12,8 @@ $(document)
       $('.modal-title').text('Change your mind?');
       $('.modal-body').text("That's OK, we are here to help you find your next favorite trail")
       $('#intro-modal').modal('show');
+      $('#trail-target').html(' ');
+      initMap();
     });
 
     initMap(); //initializes google map
@@ -34,14 +28,14 @@ $(document)
   /* - - - Modal button action selecting intermediate trails - - - */
   $('#intermediate-btn').on('click', function () {
     displayResults = 'intermediate';
-    $('#intro-modal').modal('hide'); // Hides modal from page once button is pressed
+    $('#intro-modal').modal('hide');
     $getResults();
   });
 
   /* - - - Modal button action selecting hardcore trails - - - */
   $('#hardcore-btn').on('click', function () {
     displayResults = 'Hardcore';
-    $('#intro-modal').modal('hide'); // Hides modal from page once button is pressed
+    $('#intro-modal').modal('hide');
     $getResults();
   });
 
@@ -65,9 +59,12 @@ $(document)
    console.log('Ajax'+'"GET"'+' ERROR!');
  }
 
-  /* - - - Function to clear results panel - - - */
-  function clearResults (){
-    renderTrails();
+  var map;
+  function initMap() {
+     map = new google.maps.Map(document.getElementById('map'), {
+     center: {lat: 37.78, lng: -122.44},
+     zoom: 9
+    });
   }
 
   /* - - - Success function for individual difficulty level - - - */
