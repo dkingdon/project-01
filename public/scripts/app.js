@@ -1,15 +1,6 @@
 console.log("app.js is connected");
 var displayResults; // Global variable for difficulty setting via button
 
-
-  var map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 37.78, lng: -122.44},
-      zoom: 9
-     });
-   }
-
 $(document)
   .ready(function(){
     console.log('DOM is ready!');
@@ -21,9 +12,8 @@ $(document)
       $('.modal-body').text("That's OK, we are here to help you find your next favorite trail")
       $('#intro-modal').modal('show');
       $('#trail-target').html(' ');
+      initMap();
     });
-
-
 
   initMap(); // NOTE Casey, let's comment this to tell what it does
 
@@ -68,11 +58,14 @@ $(document)
    console.log('Ajax'+'"GET"'+' ERROR!');
  }
 
-  /* - - - Function to clear results panel - - - */
-  // function clearResults (){
-  //   // $('#trail-target').
-  //   renderTrails();
-  // }
+  /* - - - Sets pins on map - - - */
+  var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 37.78, lng: -122.44},
+      zoom: 9
+     });
+   }
 
   /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
