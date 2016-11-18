@@ -43,42 +43,42 @@ var db = require("./models");
     longitude: -121.8550676,
     comments: "Epic flow trail that goes on for days. One of the bay's best rides"
   },
-  // {
-  //   name:
-  //   rating:
-  //   address:
-  //   popularTrail:
-  //   experienceLevel:
-  //   latitude:
-  //   longitude:
-  //   comments:
-  // },
-  // {
-  //   name:
-  //   rating:
-  //   address:
-  //   popularTrail:
-  //   experienceLevel:
-  //   latitude:
-  //   longitude:
-  //   comments:
-  // },
-  // {
-  //   name:
-  //   rating:
-  //   address:
-  //   popularTrail:
-  //   experienceLevel:
-  //   latitude:
-  //   longitude:
-  //   comments:
-  // },
+  {
+    name: 'Angel Island State Park',
+    rating: 4.6,
+    address: '6 Beach Rd, Belvedere, CA 94920',
+    popularTrail: 'Sunset Trail',
+    experienceLevel: 'beginner',
+    latitude: 37.868623,
+    longitude: -122.434567
+    comments: "Fun ride for the whole family. Note that you need to take the ferry to the island"
+  },
+  {
+    name: 'Redwood Regional Park',
+    rating: 4.6,
+    address: '7867 Redwood Road, Oakland, CA 94619',
+    popularTrail: 'Stream Trail',
+    experienceLevel: 'beginner',
+    latitude: 37.8198206,
+    longitude: -122.1727039,
+    comments: "There are a lot of trails in this park, mostly fireroads. Popular family hiking location"
+  },
+  {
+    name: 'Annadel State Park',
+    rating: 4.8,
+    address: '6201 Channel Dr, Santa Rosa, CA 95409',
+    popularTrail: 'Burna Tral',
+    experienceLevel: 'intermediate',
+    latitude: 38.4565992,
+    longitude: -122.6408547,
+    comments: "Physically challenging ride. Bring plenty of water"
+  },
   {
     name: 'Lake Chabot Park',
     rating: 4.6,
     address: '17600 Lake Chabot Rd, Castro Valley, CA 94546',
     popularTrail: 'Brandon Trail',
-    experienceLevel: 'beginner'
+    experienceLevel: 'beginner',
     latitude: 37.7166066,
     longitude: -122.1029251,
     comments: "Fun ride, all fireroads and some paved paths around the lake"

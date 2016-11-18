@@ -9,9 +9,19 @@ body {
   text-shadow:1px 0px 3px gray;
 }
 
-/*.container {
-  border: 1px solid black;
-}*/
+.container {
+  /*border: 1px solid black;*/
+  margin-top: -30px;
+}
+
+.modal {
+  max-height: 180px;
+  border: 1px solid white;
+  background-color: white;
+  margin: auto;
+  position: relative;
+  display: table;
+}
 
 p {
   margin: 0 auto 0 auto;
@@ -43,12 +53,18 @@ h3 {
 
 #reset-btn {
   text-align: center;
+  padding-bottom: -20px;
 }
 
 #trail-target {
   max-height: 500px;
   overflow-y: scroll;
   border: 1px solid black;
+}
+
+.btn-xs {
+  float: right;
+  margin-top: -41px;
 }
 
 .col-md-8 {

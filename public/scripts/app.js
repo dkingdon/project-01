@@ -1,5 +1,6 @@
 console.log("app.js is connected");
 
+
 $(document).ready(function(){
 console.log('DOM is ready!');
 
@@ -10,6 +11,9 @@ $.ajax({
     success: handleSuccess,
     error: handleError
 })
+
+  /* - - - Intro modal pop up upon load - - - */
+  $('#intro-modal').modal('show');
 
 }); //document closer TODO: remove before production
 
