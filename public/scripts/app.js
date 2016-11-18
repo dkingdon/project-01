@@ -14,16 +14,13 @@ $(document)
   .ready(function(){
     console.log('DOM is ready!');
 
-    // var $resetButton = $('#reset-btn');
-    // $resetButton.on('click', function(ev){
-    //   location.reload();
-    // });
 
     /* - - - Reset opening the modal again with new text - - - */
     $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
       $('.modal-title').text('Change your mind?');
       $('.modal-body').text("That's OK, we are here to help you find your next favorite trail")
       $('#intro-modal').modal('show');
+      $('#trail-target').html(' ');
     });
 
 
@@ -40,14 +37,14 @@ $(document)
   /* - - - Modal button action selecting intermediate trails - - - */
   $('#intermediate-btn').on('click', function () {
     displayResults = 'intermediate';
-    $('#intro-modal').modal('hide'); // Hides modal from page once button is pressed
+    $('#intro-modal').modal('hide');
     $getResults();
   });
 
   /* - - - Modal button action selecting hardcore trails - - - */
   $('#hardcore-btn').on('click', function () {
     displayResults = 'Hardcore';
-    $('#intro-modal').modal('hide'); // Hides modal from page once button is pressed
+    $('#intro-modal').modal('hide');
     $getResults();
   });
 
@@ -72,20 +69,11 @@ $(document)
  }
 
   /* - - - Function to clear results panel - - - */
-  function clearResults (){
-    // $('#trail-target').
-    renderTrails();
-  }
-
-  /* - - - Initial handle success function grabbing all db trails - - - */
-    // NOTE commenting out in favor of more complex one bellow @ Casey, lets review
-  // function handleSuccess(jsonData){
-  //   var trails = jsonData.trails;
-  //   console.log(trails);
-  //   trails.forEach(function (trailIndex){
-  //   renderTrails(trailIndex)
-  //   });
+  // function clearResults (){
+  //   // $('#trail-target').
+  //   renderTrails();
   // }
+
   /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
     var trails = jsonData.trails;
