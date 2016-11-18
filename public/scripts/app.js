@@ -1,11 +1,16 @@
 console.log("app.js is connected");
-var displayResults; // Global variable for difficulty setting via button
+var displayResults;
 
 
 $(document)
   .ready(function(){
     console.log('DOM is ready!');
-
+      //
+      //   $('#comment-btn').on('click',function(ev){
+      //   $(document.body).on("submit", '#comment-btn', function(ev) {alert();});
+      //   ev.preventDefault();
+      //   console.log('form comment has been clicked!');
+      // });
 
     /* - - - Reset opening the modal again with new text - - - */
     $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
@@ -25,14 +30,14 @@ $(document)
     $getResults();
   });
 
-  /* - - - Modal button action selecting intermediate trails - - - */
+
   $('#intermediate-btn').on('click', function () {
     displayResults = 'intermediate';
     $('#intro-modal').modal('hide');
     $getResults();
   });
 
-  /* - - - Modal button action selecting hardcore trails - - - */
+
   $('#hardcore-btn').on('click', function () {
     displayResults = 'Hardcore';
     $('#intro-modal').modal('hide');
@@ -45,6 +50,7 @@ $(document)
  }); //document closer TODO: remove before production
 
   /* - - - Ajax get call function - - - */
+
   function $getResults() {
     $.ajax({
       method: 'GET',
@@ -67,6 +73,7 @@ $(document)
     });
   }
 
+
   /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
     var trails = jsonData.trails;
@@ -75,7 +82,6 @@ $(document)
       if (trails[i].experienceLevel === displayResults) {
         targetTrails.push(trails[i]);
       }
-      console.log(targetTrails);
     }
     targetTrails.forEach(function (trailIndex){
     renderTrails(trailIndex)
@@ -88,8 +94,17 @@ $(document)
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'Hello World!'
+        title: 'Click for information!'
       })
+      var contentString = '<p>'+ trailsIndex.name +'</p>';
+
+      var infowindow = new google.maps.InfoWindow({
+          content: contentString
+         });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+        console.log('this is >>', trailsIndex.name)
+      });
     });
   }
 
