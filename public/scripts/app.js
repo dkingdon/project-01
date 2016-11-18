@@ -1,6 +1,10 @@
 console.log("app.js is connected");
 var displayResults; // Global variable for difficulty setting via button
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a625aa020600cfcb25462894841b33500047af5b
 $(document)
   .ready(function(){
     console.log('DOM is ready!');
@@ -15,7 +19,11 @@ $(document)
       initMap();
     });
 
+<<<<<<< HEAD
   initMap(); // NOTE Casey, let's comment this to tell what it does
+=======
+    initMap(); //initializes google map
+>>>>>>> a625aa020600cfcb25462894841b33500047af5b
 
   /* - - - Modal button action selecting beginner trails - - - */
   $('#beginner-btn').on('click', function () {
@@ -58,6 +66,7 @@ $(document)
    console.log('Ajax'+'"GET"'+' ERROR!');
  }
 
+<<<<<<< HEAD
   /* - - - Sets pins on map - - - */
   var map;
     function initMap() {
@@ -66,6 +75,15 @@ $(document)
       zoom: 9
      });
    }
+=======
+  var map;
+  function initMap() {
+     map = new google.maps.Map(document.getElementById('map'), {
+     center: {lat: 37.78, lng: -122.44},
+     zoom: 9
+    });
+  }
+>>>>>>> a625aa020600cfcb25462894841b33500047af5b
 
   /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
