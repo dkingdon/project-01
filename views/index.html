@@ -65,22 +65,22 @@
           <p><strong>Rating: </strong>{{rating}}</p>
           <p><strong>Popular Trail: </strong>{{popularTrail}}</p>
           <p><strong>Address: </strong> {{address}}</p>
-          <p><strong>Comments:</strong>   <br/>
-<<<<<<< HEAD
-            {{comments}}
+          <p><strong>Comments:</strong>
           <br/>
-           <!-- <button type="button" class="btn btn-default btn-xs">Comment</button>  -->
-         </p>
-            <!-- need to think how we will display comments  -->
-=======
+          <form>
+          <input id="new-comment" data-id={{id}} type="text" class="form-control" placeholder="Add a comment">
+          <button id="comment-btn" type="submit" class="btn btn-default btn-sm">Submit</button>
+        </form>
+        <br/>
             <em>"{{comments}}"</em>
-            <br/>
+
             <!-- <button type="button" class="btn btn-default btn-xs">Comment</button> -->
           </p>
           <!-- need to think how we will display comments  -->
->>>>>>> b02aeab833689f5f0029034fc12b603d09355654
           <div class="underline"></div>
+
         </script>
+
         <div class="col-md-8">
           <div id="map">
           </div>
@@ -88,7 +88,7 @@
       </div>
       <hr>
     <footer>
-    <p>some text here</p>
+    <p>Folllow us/Contact us</p>
     </footer>
     </div>
 

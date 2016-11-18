@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  
+
   margin-top: -20px;
 }
 
@@ -91,4 +91,9 @@ h3 {
 
 #map {
   height: 580px;
+}
+
+footer {
+  font-family: Montserrat;
+  text-align: center;
 }

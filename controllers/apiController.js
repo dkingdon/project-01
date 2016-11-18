@@ -4,9 +4,9 @@ function index(req, res) {
     documentation_url: null,
     base_url: null,
     endpoints: [
-      {method: "GET", path: "/api", description: ""},
-      {method: "GET", path: "/api/trails", description: ""},
-      {method: "POST", path: "/api/comments", description: ""}
+      {method: "GET", path: "/api", description: "Availabe endpoints"},
+      {method: "GET", path: "/api/trails", description: "All the trails"},
+      {method: "POST", path: "/api/comments", description: "All the posted comments by user"}
     ]
   });
 }

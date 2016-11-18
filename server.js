@@ -14,6 +14,7 @@ app.get('/', function homepage (req, res) {
 // Json API endpoints
 app.get('/api', controllers.api.index);
 app.get('/api/trails', controllers.trails.index);
+app.post('/api/trails', controllers.trails.index);
 
 
 //Server listening on port 3000
