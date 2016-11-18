@@ -28,7 +28,6 @@ h3 {
   margin-right: auto;
 }
 
-
 .col-md-4 {
   margin: 10px auto 10px auto;
   width: 33.3333%;
@@ -52,9 +51,12 @@ h3 {
 }
 
 .col-md-8 {
-  border: 1px solid black;
   margin: 10px auto 10px auto;
   width: 63.6666%;
   float: right;
   /*background: url(public/images/tempMap.png); */
+}
+
+#map {
+  height: 500px;
 }

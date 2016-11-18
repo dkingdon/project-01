@@ -14,14 +14,17 @@ $(document)
     })
 
     var $resetButton = $('#reset-btn');
-    $resetButton.on('click', function(){
+    $resetButton.on('click', function(ev){
       location.reload();
     });
+
+  initMap();
 
  }); //document closer TODO: remove before production
 
   function handleSuccess(jsonData){
-    var trails = jsonData.trails;
+    var trails = jsonData.trails; // TODO: use this for map loop
+    console.log(trails[4].name);
     trails.forEach(function (trailIndex){
     renderTrails(trailIndex)
     });
@@ -36,4 +39,12 @@ $(document)
     template = Handlebars.compile(source),
     trail = template(trail);
     $('#trail-target').prepend(trail);
+  }
+
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+    });
   }
