@@ -93,6 +93,36 @@ var db = require("./models");
     latitude: 38.0066978,
     longitude: -122.4961469,
     comments: "Short fun ride, would recommend counter clockwise loop"
+  },
+  {
+    name: 'Alameda Creek',
+    rating: 4.7,
+    address: 'Alameda Creek Trail, Fremont, CA 94536',
+    popularTrail: "Alameda Creek",
+    experienceLevel: 'beginner',
+    latitude: 37.5794513,
+    longitude: -121.9679912,
+    comments: "Fun ride for the family and casual biker"
+  },
+  {
+    name: 'Rockville Hills',
+    rating: 4.2,
+    address: '2149 Rockville Rd, Fairfield, CA 94534',
+    popularTrail: 'Mystic Ridge',
+    experienceLevel: 'Hardcore',
+    latitude: 38.2452069,
+    longitude: -122.1428958,
+    comments: "Just like the name suggests, this place is full of technical rocky trails"
+  },
+  {
+    name: 'Santa Teresa Park',
+    rating: 4.4,
+    address: '260 Bernal Rd, San Jose, CA 95119',
+    popularTrail: 'Ohlone Trail',
+    experienceLevel: 'intermediate',
+    latitude: 37.2196646,
+    longitude: -121.7790788,
+    comments: "Best place in San Jose to ride!!"
   }
 ];
 

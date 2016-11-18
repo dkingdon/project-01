@@ -1,4 +1,6 @@
 console.log("app.js is connected");
+var displayResults; // Global variable for difficulty setting via button
+
 
   var map;
     function initMap() {
@@ -12,37 +14,93 @@ $(document)
   .ready(function(){
     console.log('DOM is ready!');
 
-    $.ajax({
-      method: 'GET',
-      url: '/api/trails',
-      type: 'jsonData',
-      success: handleSuccess,
-      error: handleError
-    })
+    // var $resetButton = $('#reset-btn');
+    // $resetButton.on('click', function(ev){
+    //   location.reload();
+    // });
 
-    var $resetButton = $('#reset-btn');
-    $resetButton.on('click', function(ev){
-      location.reload();
+    /* - - - Reset opening the modal again with new text - - - */
+    $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
+      $('.modal-title').text('Change your mind?');
+      $('.modal-body').text("That's OK, we are here to help you find your next favorite trail")
+      $('#intro-modal').modal('show');
     });
 
-  initMap();
+
+
+  initMap(); // NOTE Casey, let's comment this to tell what it does
+
+  /* - - - Modal button action selecting beginner trails - - - */
+  $('#beginner-btn').on('click', function () {
+    displayResults = 'beginner';
+    $('#intro-modal').modal('hide'); // Hides modal from page once button is pressed
+    $getResults();
+  });
+
+  /* - - - Modal button action selecting intermediate trails - - - */
+  $('#intermediate-btn').on('click', function () {
+    displayResults = 'intermediate';
+    $('#intro-modal').modal('hide'); // Hides modal from page once button is pressed
+    $getResults();
+  });
+
+  /* - - - Modal button action selecting hardcore trails - - - */
+  $('#hardcore-btn').on('click', function () {
+    displayResults = 'Hardcore';
+    $('#intro-modal').modal('hide'); // Hides modal from page once button is pressed
+    $getResults();
+  });
 
   /* - - - Intro modal pop up upon load - - - */
   $('#intro-modal').modal('show');
 
  }); //document closer TODO: remove before production
 
+  /* - - - Ajax get call function - - - */
+  function $getResults() {
+    $.ajax({
+      method: 'GET',
+      url: '/api/trails',
+      type: 'jsonData',
+      success: handleSuccess,
+      error: handleError
+    });
+  }
+
  function handleError(){
    console.log('Ajax'+'"GET"'+' ERROR!');
  }
 
+  /* - - - Function to clear results panel - - - */
+  function clearResults (){
+    // $('#trail-target').
+    renderTrails();
+  }
+
+  /* - - - Initial handle success function grabbing all db trails - - - */
+    // NOTE commenting out in favor of more complex one bellow @ Casey, lets review
+  // function handleSuccess(jsonData){
+  //   var trails = jsonData.trails;
+  //   console.log(trails);
+  //   trails.forEach(function (trailIndex){
+  //   renderTrails(trailIndex)
+  //   });
+  // }
+  /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
     var trails = jsonData.trails;
-    trails.forEach(function (trailIndex){
+    var targetTrails = [];
+    for ( var i = 0; i < trails.length; i++ ){
+      if (trails[i].experienceLevel === displayResults) {
+        targetTrails.push(trails[i]);
+      }
+      console.log(targetTrails);
+    }
+    targetTrails.forEach(function (trailIndex){
     renderTrails(trailIndex)
     });
 
-    trails.forEach(function(trailsIndex){
+    targetTrails.forEach(function(trailsIndex){
       var myLatLng = {
       lat: trailsIndex.latitude,
       lng: trailsIndex.longitude}
