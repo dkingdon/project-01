@@ -11,8 +11,7 @@ body {
 }
 
 .container {
-  /*border: 1px solid black;*/
-  margin-top: -30px;
+  margin-top: -20px;
 }
 
 .modal {
@@ -22,6 +21,17 @@ body {
   margin: auto;
   position: relative;
   display: table;
+  text-align: center;
+}
+
+.modal-btn {
+  text-align: center;
+  margin-right: 45px;
+  margin-left: 45px;
+}
+
+.modal-footer {
+  text-align: center;
 }
 
 p {
@@ -40,7 +50,7 @@ h3 {
 }
 
 .col-md-4 {
-  margin: 10px auto 10px auto;
+  margin: 0px auto 10px auto;
   width: 33.3333%;
   float: left;
 }
@@ -68,7 +78,7 @@ h3 {
 }
 
 .col-md-8 {
-  margin: 10px auto 10px auto;
+  margin: 0px auto 10px auto;
   width: 63.6666%;
   float: right;
 }

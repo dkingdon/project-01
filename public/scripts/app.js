@@ -23,12 +23,18 @@ $(document)
     var $resetButton = $('#reset-btn');
     $resetButton.on('click', function(ev){
       location.reload();
+
+
+
     });
 
   initMap();
 
   /* - - - Intro modal pop up upon load - - - */
   $('#intro-modal').modal('show');
+  
+
+
 
  }); //document closer TODO: remove before production
 
