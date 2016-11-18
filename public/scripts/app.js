@@ -96,7 +96,7 @@ $(document)
         map: map,
         title: 'Click for information!'
       })
-      var contentString = '<p>'+ trailsIndex.name +'</p>';
+      var contentString = '<p><b>'+ trailsIndex.name +'</b></p>';
 
       var infowindow = new google.maps.InfoWindow({
           content: contentString
