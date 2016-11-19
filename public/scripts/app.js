@@ -5,12 +5,7 @@ var displayResults;
 $(document)
   .ready(function(){
     console.log('DOM is ready!');
-      //
-      //   $('#comment-btn').on('click',function(ev){
-      //   $(document.body).on("submit", '#comment-btn', function(ev) {alert();});
-      //   ev.preventDefault();
-      //   console.log('form comment has been clicked!');
-      // });
+
 
     /* - - - Reset opening the modal again with new text - - - */
     $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
@@ -30,13 +25,11 @@ $(document)
     $getResults();
   });
 
-
   $('#intermediate-btn').on('click', function () {
     displayResults = 'intermediate';
     $('#intro-modal').modal('hide');
     $getResults();
   });
-
 
   $('#hardcore-btn').on('click', function () {
     displayResults = 'Hardcore';
@@ -100,7 +93,7 @@ $(document)
 
       var infowindow = new google.maps.InfoWindow({
           content: contentString
-         });
+      });
       marker.addListener('mouseover', function() {
         infowindow.open(map, marker);
         console.log('this is >>', trailsIndex.name)
