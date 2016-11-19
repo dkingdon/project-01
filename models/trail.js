@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var TrailSchema = new Schema({
     name: String,
+    trailCode: String,
     rating: Number,
     address: String,
     popularTrail: String,

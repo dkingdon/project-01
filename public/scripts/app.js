@@ -58,6 +58,14 @@ $(document)
    console.log('Ajax'+'"GET"'+' ERROR!');
  }
 
+  /* - - - Playing around with comment submit button  - - - */
+  function getComment() {
+    var newComment = document.getElementById("alameda").value;
+    console.log(newComment);
+}
+  // NOTE maybe switchstatement. Add a personal identifyer to each item in seed and use that instead of name.
+
+
   /* - - - Sets pins on map - - - */
   var map;
     function initMap() {
@@ -66,6 +74,7 @@ $(document)
       zoom: 8
      });
    }
+
 
   /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){

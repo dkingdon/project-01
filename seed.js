@@ -6,6 +6,7 @@ var db = require("./models");
   var trailsList = [{
 
     name: 'Joaquin Miller Park',
+    trailCode: 'joaquin',
     rating: 4.5,
     address: "3590 Sanborn Dr., Oakland, CA 94602",
     popularTrail: "cinderella",
@@ -16,6 +17,7 @@ var db = require("./models");
   },
   {
     name: 'Camp Tamarancho',
+    trailCode: 'tamarancho',
     rating: 4.7,
     address: 'Iron Springs Fire Rd, Fairfax, CA 94930',
     popularTrail: 'Flow Trail',
@@ -26,6 +28,7 @@ var db = require("./models");
   },
   {
     name: 'Skeggs Point',
+    trailCode: 'skeggs',
     rating: 4.7,
     address: '15463 Skyline Blvd, Redwood City, CA 94062',
     popularTrail: 'Manzanita Tral',
@@ -36,6 +39,7 @@ var db = require("./models");
   },
   {
     name: 'Demo Forest',
+    trailCode: 'demo',
     rating: 4.5,
     address: 'Highland Way, Los Gatos, CA 95033',
     popularTrail: 'Flow Trail',
@@ -46,6 +50,7 @@ var db = require("./models");
   },
   {
     name: 'Angel Island State Park',
+    trailCode: 'angel',
     rating: 4.6,
     address: '6 Beach Rd, Belvedere, CA 94920',
     popularTrail: 'Sunset Trail',
@@ -56,6 +61,7 @@ var db = require("./models");
   },
   {
     name: 'Redwood Regional Park',
+    trailCode: 'redwood',
     rating: 4.6,
     address: '7867 Redwood Road, Oakland, CA 94619',
     popularTrail: 'Stream Trail',
@@ -66,6 +72,7 @@ var db = require("./models");
   },
   {
     name: 'Annadel State Park',
+    trailCode: 'annadel',
     rating: 4.8,
     address: '6201 Channel Dr, Santa Rosa, CA 95409',
     popularTrail: 'Burna Trail',
@@ -76,6 +83,7 @@ var db = require("./models");
   },
   {
     name: 'Lake Chabot Park',
+    trailCode: 'chabot',
     rating: 4.6,
     address: '17600 Lake Chabot Rd, Castro Valley, CA 94546',
     popularTrail: 'Brandon Trail',
@@ -86,6 +94,7 @@ var db = require("./models");
   },
   {
     name: 'China Camp',
+    trailCode: 'chinaCamp',
     rating: 4.2,
     address: '100 China Camp Village Rd, San Rafael, CA 94901',
     popularTrail: 'Bay View Trail',
@@ -96,6 +105,7 @@ var db = require("./models");
   },
   {
     name: 'Alameda Creek',
+    trailCode: 'alameda',
     rating: 4.7,
     address: 'Alameda Creek Trail, Fremont, CA 94536',
     popularTrail: "Alameda Creek",
@@ -106,6 +116,7 @@ var db = require("./models");
   },
   {
     name: 'Rockville Hills',
+    trailCode: 'rockville',
     rating: 4.2,
     address: '2149 Rockville Rd, Fairfield, CA 94534',
     popularTrail: 'Mystic Ridge',
@@ -116,6 +127,7 @@ var db = require("./models");
   },
   {
     name: 'Santa Teresa Park',
+    trailCode: 'santaTeresa',
     rating: 4.4,
     address: '260 Bernal Rd, San Jose, CA 95119',
     popularTrail: 'Ohlone Trail',

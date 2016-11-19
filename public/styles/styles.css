@@ -52,6 +52,9 @@ body {
   text-align: center;
 }
 
+form {
+  margin-bottom: -30px;
+}
 
 p {
   margin: 0 auto 0 auto;
@@ -105,3 +108,6 @@ h3 {
 #map {
   height: 580px;
 }
+ footer {
+   text-align: center;
+ }

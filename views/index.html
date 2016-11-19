@@ -66,13 +66,16 @@
           <p><strong>Rating: </strong>{{rating}}</p>
           <p><strong>Popular Trail: </strong>{{popularTrail}}</p>
           <p><strong>Address: </strong> {{address}}</p>
-          <p><strong>Comments:</strong><input id="new-comment"type="text" class="form-control" placeholder="Add a comment">
-            <!-- <br/> -->
-            <em>"{{comments}}"</em>
+          <p><strong>Comments:</strong>
+            <form id="comment-form">
+              <div class="form-group">
+                <input type="text" data-id={{_id}} class="form-control" id="{{trailCode}}" placeholder="Leave a comment">
+              </div>
+              <button type="submit" style="visibility:hidden" onclick='getComment()' class="btn btn-default btn-xs">Update</button>
+            </form>
             <br/>
-            <!-- <button type="button" class="btn btn-default btn-xs">Comment</button> -->
+            <em>"{{comments}}"</em>
           </p>
-          <!-- need to think how we will display comments  -->
           <div class="underline"></div>
         </script>
         <div class="col-md-8">
@@ -82,7 +85,7 @@
       </div>
       <hr>
     <footer>
-    <p>some text here</p>
+    <p>Bay Area Trail Finder &copy; Danksey 2016</p>
     </footer>
     </div>
 
