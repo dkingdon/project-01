@@ -101,10 +101,13 @@ $(document)
       var infowindow = new google.maps.InfoWindow({
           content: contentString
          });
-      marker.addListener('click', function() {
+      marker.addListener('mouseover', function() {
         infowindow.open(map, marker);
         console.log('this is >>', trailsIndex.name)
       });
+      marker.addListener('mouseout', function() {
+        infowindow.close(map, marker);
+      })
     });
   }
 
