@@ -6,7 +6,6 @@ $(document)
   .ready(function(){
     console.log('DOM is ready!');
 
-
     /* - - - Reset opening the modal again with new text - - - */
     $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
       $('.modal-title').text('Change your mind?');
@@ -39,10 +38,15 @@ $(document)
 
   /* - - - Intro modal pop up upon load - - - */
   $('#intro-modal').modal('show');
+  $('#trail-target').on('click', function(ev){
+    ev.preventDefault();
+    console.log('this is  text');
+  });
 
  }); //document closer TODO: remove before production
 
   /* - - - Ajax get call function - - - */
+
 
   function $getResults() {
     $.ajax({
@@ -90,13 +94,19 @@ $(document)
         title: 'Click for information!'
       })
       var contentString = '<p><b>'+ trailsIndex.name +'</b></p>';
+      var infoString = '<p><b>'+ trailsIndex.comments +'</b></p>';
 
+      var info = new google.maps.InfoWindow({
+          content: infoString
+      })
       var infowindow = new google.maps.InfoWindow({
           content: contentString
       });
+      marker.addListener('click', function() {
+        info.open(map, marker);
+      });
       marker.addListener('mouseover', function() {
         infowindow.open(map, marker);
-        console.log('this is >>', trailsIndex.name)
       });
       marker.addListener('mouseout', function() {
         infowindow.close(map, marker);
