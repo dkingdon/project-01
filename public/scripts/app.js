@@ -38,15 +38,17 @@ $(document)
 
   /* - - - Intro modal pop up upon load - - - */
   $('#intro-modal').modal('show');
-  $('#trail-target').on('click', function(ev){
-    ev.preventDefault();
-    console.log('this is  text');
-  });
+  $('#trail-target').on('click', submitClbk);
+
 
  }); //document closer TODO: remove before production
 
   /* - - - Ajax get call function - - - */
 
+function submitClbk(ev){
+  ev.preventDefault();
+  console.log('submit has been clicked');
+}
 
   function $getResults() {
     $.ajax({
