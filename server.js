@@ -14,10 +14,14 @@ app.get('/admin', function homepage (req, res) {
   res.sendFile(__dirname + '/views/admin.html');
 });
 
+
+
+
 // Json API endpoints
 app.get('/api', controllers.api.index);
 app.get('/api/trails', controllers.trails.index);
-
+app.post('/api/trails', controllers.trails.create);
+app.delete('api/trails/:trailId', controllers.trails.destroy);
 
 //Server listening on port 3000
 app.listen(process.env.PORT || 3000, function () {

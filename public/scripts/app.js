@@ -104,6 +104,7 @@ $(document)
 
   /* - - - Playing around with comment submit button  - - - */
   function getComment(trailCode) {
+    trailCode.preventDefault();
     var newComment;
     /* Using switch statment to handle each case, will find better way once it is working */
     switch (trailCode) {

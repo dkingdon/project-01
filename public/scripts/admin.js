@@ -23,18 +23,18 @@ $(document)
 
     /* - - - Submit new trail form - - - */
     $('#newTrailForm').on('submit', function (e) {
-      console.log('new Trail', $(this.serializeArray());
-      $.ajax ({
-        method: 'POST',
-        url: '/api/trails',
-        data: $(this).serializeArray(),
-        success: createSuccess,
-        error: handleError
+      e.preventDefault();
+      var formData = $(this).serialize();
+      console.log('formData', formData);
+      $.post('/api/trails', formData, function (trail) {
+        console.log('trail after POST', trail);
+        renderPage();
       });
+      $(this).trigger("reset");
     });
 
-    
-
+    /* - - - Delete trail - - - */
+    $('.delete-btn').on('click', handleDeleteClick);
 
  }); //document closer TODO: remove before production
 
@@ -62,4 +62,22 @@ $(document)
     $('#newTrailForm input').val();
     allTrails.push(json);
     renderPage();
+  }
+
+  /* - - - Handle Delete - - - */
+  function handleDeleteClick(data) {
+    var trailId = $(this).parents('.frame-info').data('data-id');
+    console.log('deleting ', trailId);
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/trails/' + trailId,
+      success: handleDeleteSuccess
+    });
+  }
+
+  /* - - - Handle Delete - - - */
+  function handleDeleteSuccess(data) {
+    var deletedTrailId = data.id;
+    console.log('deleting ', deletedTrailId);
+    $('div[data-id=' + deletedTrailId +']').remove();
   }
