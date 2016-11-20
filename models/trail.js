@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-Comments = require("./comments.js");
 
 var TrailSchema = new Schema({
     name: String,
