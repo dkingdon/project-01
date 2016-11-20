@@ -5,7 +5,6 @@ $(document)
   .ready(function(){
     console.log('DOM is ready!');
 
-<<<<<<< HEAD
 
   /* - - - Reset opening the modal again with new text - - - */
   $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
@@ -15,16 +14,6 @@ $(document)
     $('#trail-target').html(' ');
     initMap();
   });
-=======
-    /* - - - Reset opening the modal again with new text - - - */
-    $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
-      $('.modal-title').text('Change your mind?');
-      $('.modal-body').text("That's OK, we are here to help you find your next favorite trail")
-      $('#intro-modal').modal('show');
-      $('#trail-target').html(' ');
-      initMap();
-    });
->>>>>>> 917657ed9586ca83578452c2b90b7ceaed49dbdd
 
   initMap(); // NOTE Casey, let's comment this to tell what it does
 
