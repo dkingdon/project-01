@@ -126,7 +126,7 @@ var db = require("./models");
   }
 ];
 
-  var userComments = [{
+  var userCommentsList = [{
     name: 'Casey Oneal',
     comment: 'This app is great!'
   }
@@ -147,6 +147,14 @@ var db = require("./models");
     db.Trail.create(trailsList, function( err, trails) {
       if (err) { console.log(err); }
       console.log( 'Dancsy has created ' + trails.length, 'trails');
+    })
+  })
+
+
+  db.UserComments.remove({}, function( err, comments ) {
+    db.UserComments.create(userCommentsList, function( err, comments) {
+      if (err) { console.log(err); }
+      console.log( 'Dancsy has created ' + comments.length, 'Comment');
       process.exit();
     })
   })
