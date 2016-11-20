@@ -38,7 +38,7 @@ $(document)
 
   /* - - - Intro modal pop up upon load - - - */
   $('#intro-modal').modal('show');
-  $('#trail-target').on('click', submitClbk);
+  $('#trail-target').on('click', '.add-comment',submitClbk);
 
 
  }); //document closer TODO: remove before production
@@ -48,9 +48,10 @@ $(document)
 function submitClbk(ev){
   ev.preventDefault();
   console.log('submit has been clicked');
+
 }
 
-  function $getResults() {
+  function $getResults(){
     $.ajax({
       method: 'GET',
       url: '/api/trails',
@@ -75,6 +76,7 @@ function submitClbk(ev){
 
   /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
+    console.log(jsonData.trails[3].comments[0].comments);
     var trails = jsonData.trails;
     var targetTrails = [];
     for ( var i = 0; i < trails.length; i++ ){
@@ -98,15 +100,15 @@ function submitClbk(ev){
       var contentString = '<p><b>'+ trailsIndex.name +'</b></p>';
       var infoString = '<p><b>'+ trailsIndex.comments +'</b></p>';
 
-      var info = new google.maps.InfoWindow({
-          content: infoString
-      })
+      // var info = new google.maps.InfoWindow({
+      //     content: infoString
+      // })
       var infowindow = new google.maps.InfoWindow({
           content: contentString
       });
-      marker.addListener('click', function() {
-        info.open(map, marker);
-      });
+      // marker.addListener('click', function() {
+      //   info.open(map, marker);
+      // });
       marker.addListener('mouseover', function() {
         infowindow.open(map, marker);
       });

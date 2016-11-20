@@ -12,7 +12,7 @@ var db = require("./models");
     experienceLevel: "Hardcore",
     latitude: 37.809706,
     longitude: -122.183235,
-    comments: "I like this place a lot, too many hikers though" // DK: TODO Temp, will replace with array
+
   },
   {
     name: 'Camp Tamarancho',
@@ -32,7 +32,7 @@ var db = require("./models");
     experienceLevel: 'intermediate',
     latitude: 37.4010377,
     longitude: -122.3125133,
-    comments: "Park mixed with both smooth and technical trails"
+
   },
   {
     name: 'Demo Forest',
@@ -42,7 +42,7 @@ var db = require("./models");
     experienceLevel: 'Hardcore',
     latitude: 37.0824064,
     longitude: -121.8550676,
-    comments: "Epic flow trail that goes on for days. One of the bay's best rides"
+
   },
   {
     name: 'Angel Island State Park',
@@ -51,8 +51,8 @@ var db = require("./models");
     popularTrail: 'Sunset Trail',
     experienceLevel: 'beginner',
     latitude: 37.868623,
-    longitude: -122.434567,
-    comments: "Fun ride for the whole family. Note that you need to take the ferry to the island"
+    longitude: -122.434567
+
   },
   {
     name: 'Redwood Regional Park',
@@ -61,8 +61,8 @@ var db = require("./models");
     popularTrail: 'Stream Trail',
     experienceLevel: 'beginner',
     latitude: 37.8198206,
-    longitude: -122.1727039,
-    comments: "There are a lot of trails in this park, mostly fireroads. Popular family hiking location"
+    longitude: -122.1727039
+
   },
   {
     name: 'Annadel State Park',
@@ -71,8 +71,8 @@ var db = require("./models");
     popularTrail: 'Burna Trail',
     experienceLevel: 'intermediate',
     latitude: 38.4565992,
-    longitude: -122.6408547,
-    comments: "Physically challenging ride. Bring plenty of water"
+    longitude: -122.6408547
+
   },
   {
     name: 'Lake Chabot Park',
@@ -81,8 +81,8 @@ var db = require("./models");
     popularTrail: 'Brandon Trail',
     experienceLevel: 'beginner',
     latitude: 37.7166066,
-    longitude: -122.1029251,
-    comments: "Fun ride, all fireroads and some paved paths around the lake"
+    longitude: -122.1029251
+
   },
   {
     name: 'China Camp',
@@ -91,8 +91,8 @@ var db = require("./models");
     popularTrail: 'Bay View Trail',
     experienceLevel: 'intermediate',
     latitude: 38.0066978,
-    longitude: -122.4961469,
-    comments: "Short fun ride, would recommend counter clockwise loop"
+    longitude: -122.4961469
+
   },
   {
     name: 'Alameda Creek',
@@ -101,8 +101,8 @@ var db = require("./models");
     popularTrail: "Alameda Creek",
     experienceLevel: 'beginner',
     latitude: 37.5794513,
-    longitude: -121.9679912,
-    comments: "Fun ride for the family and casual biker"
+    longitude: -121.9679912
+
   },
   {
     name: 'Rockville Hills',
@@ -111,8 +111,8 @@ var db = require("./models");
     popularTrail: 'Mystic Ridge',
     experienceLevel: 'Hardcore',
     latitude: 38.2452069,
-    longitude: -122.1428958,
-    comments: "Just like the name suggests, this place is full of technical rocky trails"
+    longitude: -122.1428958
+
   },
   {
     name: 'Santa Teresa Park',
@@ -121,16 +121,31 @@ var db = require("./models");
     popularTrail: 'Ohlone Trail',
     experienceLevel: 'intermediate',
     latitude: 37.2196646,
-    longitude: -121.7790788,
-    comments: "Best place in San Jose to ride!!"
+    longitude: -121.7790788
+
   }
 ];
 
-  /* - - - Removes Trails from the db and replaces with seed info- - - */
+  var userComments = [{
+    name: 'Casey Oneal',
+    comment: 'This app is great!'
+  }
+];
+
+  var comments = [];
+    comments.push({
+    comments: "Rate our app"
+  });
+
+  trailsList.forEach(function(arr) {
+    arr.comments = comments ;
+  });
+
+
+/* - - - Removes Trails from the db and replaces with seed info- - - */
   db.Trail.remove({}, function( err, trails ) {
     db.Trail.create(trailsList, function( err, trails) {
       if (err) { console.log(err); }
-      console.log(trails);
       console.log( 'Dancsy has created ' + trails.length, 'trails');
       process.exit();
     })

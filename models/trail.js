@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
+Comments = require("./comments.js");
 
 var TrailSchema = new Schema({
     name: String,
@@ -9,7 +10,7 @@ var TrailSchema = new Schema({
     experienceLevel: String,
     latitude: Number,
     longitude: Number,
-    comments: String
+    comments: [Comments.schema]
 });
 
 var Trail = mongoose.model('Trail', TrailSchema);
