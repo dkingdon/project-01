@@ -1,11 +1,10 @@
 console.log("app.js is connected");
-var displayResults;
+var displayResults; // Global variable for difficulty setting via button
 
 $(document)
   .ready(function(){
     console.log('DOM is ready!');
 
-<<<<<<< HEAD
 
   /* - - - Reset opening the modal again with new text - - - */
   $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
@@ -15,16 +14,6 @@ $(document)
     $('#trail-target').html(' ');
     initMap();
   });
-=======
-    /* - - - Reset opening the modal again with new text - - - */
-    $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
-      $('.modal-title').text('Change your mind?');
-      $('.modal-body').text("That's OK, we are here to help you find your next favorite trail")
-      $('#intro-modal').modal('show');
-      $('#trail-target').html(' ');
-      initMap();
-    });
->>>>>>> 917657ed9586ca83578452c2b90b7ceaed49dbdd
 
   initMap(); // NOTE Casey, let's comment this to tell what it does
 
@@ -35,12 +24,14 @@ $(document)
     $getResults();
   });
 
+  /* - - - Modal button action selecting intermediate trails - - - */
   $('#intermediate-btn').on('click', function () {
     displayResults = 'intermediate';
     $('#intro-modal').modal('hide');
     $getResults();
   });
 
+  /* - - - Modal button action selecting hardcore trails - - - */
   $('#hardcore-btn').on('click', function () {
     displayResults = 'Hardcore';
     $('#intro-modal').modal('hide');
@@ -49,20 +40,11 @@ $(document)
 
   /* - - - Intro modal pop up upon load - - - */
   $('#intro-modal').modal('show');
-  $('#trail-target').on('click', '.add-comment',submitClbk);
-
 
  }); //document closer TODO: remove before production
 
   /* - - - Ajax get call function - - - */
-
-function submitClbk(ev){
-  ev.preventDefault();
-  console.log('submit has been clicked');
-
-}
-
-  function $getResults(){
+  function $getResults() {
     $.ajax({
       method: 'GET',
       url: '/api/trails',
@@ -88,10 +70,8 @@ function submitClbk(ev){
    }
 
 
-
   /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
-    console.log(jsonData.trails[3].comments[0].comments);
     var trails = jsonData.trails;
     var targetTrails = [];
     for ( var i = 0; i < trails.length; i++ ){
@@ -110,25 +90,7 @@ function submitClbk(ev){
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'Click for information!'
-      })
-      var contentString = '<p><b>'+ trailsIndex.name +'</b></p>';
-      var infoString = '<p><b>'+ trailsIndex.comments +'</b></p>';
-
-      // var info = new google.maps.InfoWindow({
-      //     content: infoString
-      // })
-      var infowindow = new google.maps.InfoWindow({
-          content: contentString
-      });
-      // marker.addListener('click', function() {
-      //   info.open(map, marker);
-      // });
-      marker.addListener('mouseover', function() {
-        infowindow.open(map, marker);
-      });
-      marker.addListener('mouseout', function() {
-        infowindow.close(map, marker);
+        title: 'Hello World!'
       })
     });
   }

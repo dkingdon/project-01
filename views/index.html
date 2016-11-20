@@ -54,7 +54,7 @@
     <!-- Results Section -->
     <div class="container">
       <div class="row" id="reset-btn">
-        <div class="col-md-4 ">
+        <div class="col-md-4">
           <button class="btn btn-default" type="submit">New Search</button>
         </div>
       </div>
@@ -74,21 +74,20 @@
               <button type="submit" style="visibility:hidden" onclick='getComment({{trailCode}}.id)' class="btn btn-default btn-xs">Update</button>
             </form>
             <br/>
-            <em>{{#each comments}}{{this.comments}}{{/each}}</em>
+            <em>"{{comments}}"</em>
           </p>
           <div class="underline"></div>
-          </script>
-          <div class="col-md-8">
+        </script>
+        <div class="col-md-8">
           <div id="map">
           </div>
        </div>
-
+      </div>
       <hr>
     <footer>
     <p>Bay Area Trail Finder &copy; Danksey 2016</p>
     </footer>
     </div>
-  </div>
-<!-- remvoe the line above -->
+
   </body>
 </html>
