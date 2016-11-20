@@ -108,6 +108,7 @@ h3 {
 #map {
   height: 580px;
 }
+<<<<<<< HEAD
  footer {
    text-align: center;
  }
@@ -123,5 +124,10 @@ h3 {
  }
 
 .admin-h1 {
+=======
+
+footer {
+  font-family: Montserrat;
+>>>>>>> 917657ed9586ca83578452c2b90b7ceaed49dbdd
   text-align: center;
 }
