@@ -111,3 +111,16 @@ h3 {
  footer {
    text-align: center;
  }
+
+ /* - - - ADMIN PAGE - - - */
+
+#newTrailForm {
+   margin-top: 40px;
+   border: 2px solid black;
+   background-color: white;
+   margin-bottom: 30px;
+ }
+
+.admin-h1 {
+  text-align: center;
+}
