@@ -14,6 +14,9 @@ app.get('/', function homepage (req, res) {
 // Json API endpoints
 app.get('/api', controllers.api.index);
 app.get('/api/trails', controllers.trails.index);
+app.post('/api/trails', controllers.trails.create);
+app.delete('/api/trails/:id', controllers.trails.destroy);
+app.get('/api/trails/:id', controllers.trails.show);
 app.get('/api/comments', controllers.userComments.index);
 
 
