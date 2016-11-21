@@ -24,12 +24,14 @@ function index(req, res) {
 
   // DELETE /api/trails/:id
   function destroy (req,res) {
+    console.log(req.body)
     db.Trail.findOneAndRemove({ _id: req.params.id }, function (err, foundTrail) {
+      console.log('delet test >> ', foundTrail);
       res.json(foundTrail);
     });
   }
 
-  function oneTrail(req, res){
+  function show(req, res){
     db.Trail.findOne({_id: req.params.id}, function(err, oneTrail) {
       if (err) {console.log("Error: ", err);
       }
@@ -42,5 +44,5 @@ module.exports = {
   index: index,
   create: create,
   destroy: destroy,
-  oneTrail : oneTrail
+  show : show
 };

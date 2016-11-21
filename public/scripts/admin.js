@@ -41,16 +41,18 @@ $(document)
 
     $.ajax({
       method: 'DELETE',
-      url: "api/trails/"+$(this).attr('data-id'),
+      url: "/api/trails/"+$(this).attr('data-id'),
       success: deleteTrailSuccess,
       error: deleteError
-    }); 
+    });
   }); //deletebtn closer
 
 }); //document closer TODO: remove before production
 
-function deleteError(){
+function deleteError(xhr, status, errorThrown){
   console.log('Your delete error has been thrown.');
+  console.log(xhr)
+  console.log(errorThrown)
 }
 
 function deleteTrailSuccess(json){
@@ -58,7 +60,7 @@ function deleteTrailSuccess(json){
   var trailId = deleteTrail._id;
   console.log('delete trail>>', trailId);
 
-  for(var index = 0; index < allTrails.length; i++) {
+  for(var i = 0; i < allTrails.length; i++) {
     if(allTrials.trails[i]._id === trailId) {
       allTrails.splice(i, 1);
       break;

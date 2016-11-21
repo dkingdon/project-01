@@ -47,7 +47,8 @@ $(document)
 
 function submitClbk(ev){
   ev.preventDefault();
-  console.log('submit has been clicked');
+  var id = $(this).attr('data-id');
+  console.log('id of trail object is >>', id);
 
 }
 
@@ -74,8 +75,7 @@ function submitClbk(ev){
      });
    }
 
-
-  /* - - - Success function for individual difficulty level - - - */
+   /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
     console.log(jsonData.trails[3].comments[0].comments);
     var trails = jsonData.trails;
