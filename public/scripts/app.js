@@ -15,22 +15,22 @@ $(document)
     initMap();
   });
 
-  initMap(); // NOTE Casey, let's comment this to tell what it does
+  initMap(); // Initializes google's map
 
   /* - - - Modal button action selecting beginner trails - - - */
-  $('#beginner-btn').on('click', function () {
+  $('#beginner-btn').on('click', function(){
     displayResults = 'beginner';
     $('#intro-modal').modal('hide'); // Hides modal from page once button is pressed
     $getResults();
   });
 
-  $('#intermediate-btn').on('click', function () {
+  $('#intermediate-btn').on('click', function(){
     displayResults = 'intermediate';
     $('#intro-modal').modal('hide');
     $getResults();
   });
 
-  $('#hardcore-btn').on('click', function () {
+  $('#hardcore-btn').on('click', function() {
     displayResults = 'Hardcore';
     $('#intro-modal').modal('hide');
     $getResults();
@@ -40,11 +40,9 @@ $(document)
   $('#intro-modal').modal('show');
   $('#trail-target').on('submit', submitClbk);
 
-
- }); //document closer TODO: remove before production
+}); //document closer TODO: remove before production
 
   /* - - - Ajax get call function - - - */
-
 function submitClbk(ev){
   ev.preventDefault();
   var id = $(this).attr('data-id');
@@ -68,7 +66,7 @@ function submitClbk(ev){
 
   /* - - - Sets pins on map - - - */
     var map;
-    function initMap() {
+    function initMap(){
       map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 37.78, lng: -122.44},
       zoom: 8
@@ -77,7 +75,6 @@ function submitClbk(ev){
 
    /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
-    console.log(jsonData.trails[3].comments[0].comments);
     var trails = jsonData.trails;
     var targetTrails = [];
     for ( var i = 0; i < trails.length; i++ ){
@@ -101,15 +98,9 @@ function submitClbk(ev){
       var contentString = '<p><b>'+ trailsIndex.name +'</b></p>';
       var infoString = '<p><b>'+ trailsIndex.comments +'</b></p>';
 
-      // var info = new google.maps.InfoWindow({
-      //     content: infoString
-      // })
       var infowindow = new google.maps.InfoWindow({
           content: contentString
       });
-      // marker.addListener('click', function() {
-      //   info.open(map, marker);
-      // });
       marker.addListener('mouseover', function() {
         infowindow.open(map, marker);
       });
@@ -127,61 +118,61 @@ function submitClbk(ev){
   }
 
   /* - - - Playing around with comment submit button  - - - */
-  function getComment(trailcode) {
-    trailcode.preventDefault();
-    var newComment;
-    /* Using switch statment to handle each case, will find better way once it is working */
-    switch (trailCode) {
-      case 'alameda':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is alameda:" + newComment);
-          break;
-      case 'chabot':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is chabot:" + newComment);
-          break;
-      case 'angel':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is angel:" + newComment);
-          break;
-      case 'joaquin':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is joaquin:" + newComment);
-          break;
-      case 'tamarancho':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is tamarancho:" + newComment);
-          break;
-      case 'skeggs':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is skeggs:" + newComment);
-          break;
-      case 'demo':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is demo:" + newComment);
-          break;
-      case 'redwood':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is redwood:" + newComment);
-          break;
-      case 'annadel':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is annadel:" + newComment);
-          break;
-      case 'chinaCamp':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is chinaCamp:" + newComment);
-          break;
-      case 'rockville':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is rockville:" + newComment);
-          break;
-      case 'santaTeresa':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is santaTeresa:" + newComment);
-          break;
-      default:
-          break;
-    }
-  }
+  // function getComment(trailcode) {
+  //   trailcode.preventDefault();
+  //   var newComment;
+  //   /* Using switch statment to handle each case, will find better way once it is working */
+  //   switch (trailCode) {
+  //     case 'alameda':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is alameda:" + newComment);
+  //         break;
+  //     case 'chabot':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is chabot:" + newComment);
+  //         break;
+  //     case 'angel':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is angel:" + newComment);
+  //         break;
+  //     case 'joaquin':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is joaquin:" + newComment);
+  //         break;
+  //     case 'tamarancho':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is tamarancho:" + newComment);
+  //         break;
+  //     case 'skeggs':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is skeggs:" + newComment);
+  //         break;
+  //     case 'demo':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is demo:" + newComment);
+  //         break;
+  //     case 'redwood':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is redwood:" + newComment);
+  //         break;
+  //     case 'annadel':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is annadel:" + newComment);
+  //         break;
+  //     case 'chinaCamp':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is chinaCamp:" + newComment);
+  //         break;
+  //     case 'rockville':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is rockville:" + newComment);
+  //         break;
+  //     case 'santaTeresa':
+  //         newComment = document.getElementById(trailCode).value;
+  //         console.log("switch out put is santaTeresa:" + newComment);
+  //         break;
+  //     default:
+  //         break;
+    // }
+  // }
   // NOTE maybe switchstatement. Also, need a way to clear text field upon submitting

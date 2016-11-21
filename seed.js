@@ -138,15 +138,9 @@ var db = require("./models");
   }
 ];
 
-  var userCommentsList = [{
-    name: 'Casey Oneal',
-    comment: 'This app is great!'
-  }
-];
-
   var comments = [];
     comments.push({
-    comments: "Rate our app"
+    comments: "Some text"
   });
 
   trailsList.forEach(function(arr) {
@@ -162,11 +156,10 @@ var db = require("./models");
     })
   })
 
-
-  db.UserComments.remove({}, function( err, comments ) {
-    db.UserComments.create(userCommentsList, function( err, comments) {
-      if (err) { console.log(err); }
-      console.log( 'Dancsy has created ' + comments.length, 'Comment');
-      process.exit();
-    })
-  })
+  // db.UserComments.remove({}, function( err, comments ) {
+  //   db.UserComments.create(userCommentsList, function( err, comments) {
+  //     if (err) { console.log(err); }
+  //     console.log( 'Dancsy has created ' + comments.length, 'Comment');
+  //     process.exit();
+  //   })
+  // })
