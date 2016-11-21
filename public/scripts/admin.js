@@ -22,8 +22,7 @@ $(document)
     });
 
     /* - - - Submit new trail form - - - */
-    $('#newTrailForm').on('submit', function (e) {
-      e.preventDefault();
+    $('#newTrailForm').on('submit', function(e) {
       var formData = $(this).serialize();
       console.log('formData', formData);
       $.post('/api/trails', formData, function (trail) {
@@ -33,22 +32,52 @@ $(document)
       $(this).trigger("reset");
     });
 
-    /* - - - Delete trail - - - */
-    $('.delete-btn').on('click', handleDeleteClick);
 
- }); //document closer TODO: remove before production
+    // ajax will go here
+    $('.button').on('click','.deleteBtn', function(ev){
+    ev.preventDefault();
+    var id = $(this).attr('data-id');
+    console.log(id);
 
- function renderPage() {
+    $.ajax({
+      method: 'DELETE',
+      url: "api/trails/"+$(this).attr('data-id'),
+      success: deleteTrailSuccess,
+      error: deleteError
+    }); //ajax closer
+  }); //deletebtn closer
+
+}); //document closer TODO: remove before production
+
+function deleteError(){
+  console.log('Your delete error has been thrown.');
+}
+
+function deleteTrailSuccess(json){
+  var deleteTrail = json;
+  var trailId = deleteTrail._id;
+  console.log('delete book', trailId);
+
+  for(var index = 0; index < allTrails.length; index++) {
+    if(allTrials.trails[index]._id === trailId) {
+      allTrails.splice(index, 1);
+      break;
+    }
+  }
+  renderPage();
+}
+
+
+function renderPage() {
    $trailList.empty();
-     /* - - - Handlebars template variable  - - - */
    var trailHtml = template(allTrails);
-   $('#trail-target').append(trailHtml);
+   $('#trail-target').prepend(trailHtml);
 }
 
    /* - - - Success for ajax GET: trails call - - - */
  function handleSuccess(json) {
    allTrails = json;
-   console.log('allTrails = ', json); // NOTE: temp to see what the output is
+   console.log('allTrails = ', allTrails.trails[4]);
    renderPage();
 }
 
@@ -64,20 +93,22 @@ $(document)
     renderPage();
   }
 
-  /* - - - Handle Delete - - - */
-  function handleDeleteClick(data) {
-    var trailId = $(this).parents('.frame-info').data('data-id');
-    console.log('deleting ', trailId);
-    $.ajax({
-      method: 'DELETE',
-      url: '/api/trails/' + trailId,
-      success: handleDeleteSuccess
-    });
-  }
 
-  /* - - - Handle Delete - - - */
-  function handleDeleteSuccess(data) {
-    var deletedTrailId = data.id;
-    console.log('deleting ', deletedTrailId);
-    $('div[data-id=' + deletedTrailId +']').remove();
-  }
+  // /* - - - Handle Delete - - - */
+  // function handleDeleteClick(data) {
+  //   var trailId = $(this).data('data-id');
+  //   console.log(trailId);
+  //   console.log('deleting ', trailId);
+  //   $.ajax({
+  //     method: 'DELETE',
+  //     url: '/api/trails/' + trailId,
+  //     success: handleDeleteSuccess
+  //   });
+  // }
+  //
+  // /* - - - Handle Delete - - - */
+  // function handleDeleteSuccess(data) {
+  //   var deletedTrailId = data.id;
+  //   console.log('deleting ', deletedTrailId);
+  //   $('div[data-id=' + deletedTrailId +']').remove();
+  // }

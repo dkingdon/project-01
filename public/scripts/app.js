@@ -38,7 +38,7 @@ $(document)
 
   /* - - - Intro modal pop up upon load - - - */
   $('#intro-modal').modal('show');
-  $('#trail-target').on('click', '.add-comment',submitClbk);
+  $('#trail-target').on('submit', submitClbk);
 
 
  }); //document closer TODO: remove before production
@@ -65,17 +65,14 @@ function submitClbk(ev){
    console.log('Ajax'+'"GET"'+' ERROR!');
  }
 
-
-
   /* - - - Sets pins on map - - - */
-  var map;
+    var map;
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 37.78, lng: -122.44},
       zoom: 8
      });
    }
-
 
 
   /* - - - Success function for individual difficulty level - - - */
@@ -130,8 +127,8 @@ function submitClbk(ev){
   }
 
   /* - - - Playing around with comment submit button  - - - */
-  function getComment(trailCode) {
-    trailCode.preventDefault();
+  function getComment(trailcode) {
+    trailcode.preventDefault();
     var newComment;
     /* Using switch statment to handle each case, will find better way once it is working */
     switch (trailCode) {
