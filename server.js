@@ -10,10 +10,20 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+app.get('/admin', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/admin.html');
+});
 
-// Json API endpoints
+
+
+
+// JSON API endpoints
 app.get('/api', controllers.api.index);
 app.get('/api/trails', controllers.trails.index);
+app.post('/api/trails', controllers.trails.create);
+app.delete('admin/:id',controllers.trails.destroy);
+app.get('/api/trails/:id', controllers.trails.oneTrail)
+app.get('/api/comments', controllers.userComments.index);
 
 
 //Server listening on port 3000

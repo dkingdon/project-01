@@ -6,12 +6,23 @@ body {
   text-align: center;
   background: url(http://www.hikingphoto.com/wp-content/uploads/2012/09/l7c4786-edit1.jpg) no-repeat center center;
   background-size: cover;
-  color: white;
-  text-shadow:1px 0px 3px gray;
+  color: #F6FAF5;
+  text-shadow: 5px 0px 3px black;
+  font-family: Francois One, sans-serif;
+}
+
+.jumbotron h1 {
+  font-size: 100px;
+  font-stretch: extra-expanded;;
+}
+
+.jumbotron p {
+  font-size: 30px;
+  font-stretch: expanded;
 }
 
 .container {
-  
+
   margin-top: -20px;
 }
 
@@ -20,10 +31,11 @@ body {
   border: 1px solid white;
   background-color: white;
   margin: auto;
-  position: relative;
+  position: absolute;
+  left: 28%;
   display: table;
   text-align: center;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;;
 }
 
 .modal-title {
@@ -38,6 +50,10 @@ body {
 
 .modal-footer {
   text-align: center;
+}
+
+form {
+  margin-bottom: -30px;
 }
 
 p {
@@ -91,4 +107,22 @@ h3 {
 
 #map {
   height: 580px;
+}
+
+ footer {
+   text-align: center;
+ }
+
+ /* - - - ADMIN PAGE - - - */
+
+#newTrailForm {
+   margin-top: 40px;
+   border: 2px solid black;
+   background-color: white;
+   margin-bottom: 30px;
+   padding: 10px 10px;
+ }
+
+.admin h1 {
+  text-align: center;
 }
