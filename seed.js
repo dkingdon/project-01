@@ -138,6 +138,12 @@ var db = require("./models");
   }
 ];
 
+  //   var userCommentsList = [{
+  //     name: 'Casey Oneal',
+  //     comment: 'This app is great!'
+  //   }
+  // ];
+
   var comments = [];
     comments.push({
     comments: "Some text"

@@ -24,11 +24,11 @@ function index(req, res) {
 
   // DELETE /api/trails/:id
   function destroy (req,res) {
-    console.log(req.body)
-    db.Trail.findOneAndRemove({ _id: req.params.id }, function (err, foundTrail) {
-      console.log('delet test >> ', foundTrail);
+    console.log('Hello from the Controller side!');
+    db.Trail.findOneAndRemove({ _id: req.params.id}, function (err, foundTrail) {
+      console.log('delet >>', foundTrail);
       res.json(foundTrail);
-    });
+    })
   }
 
   function show(req, res){

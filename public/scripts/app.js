@@ -7,7 +7,7 @@ $(document)
 
 
   /* - - - Reset opening the modal again with new text - - - */
-  $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
+  $('#reset-btn').on('click', function(ev){
     $('.modal-title').text('Change your mind?');
     $('.modal-body').text("That's OK, we are here to help you find your next favorite trail")
     $('#intro-modal').modal('show');
@@ -38,17 +38,18 @@ $(document)
 
   /* - - - Intro modal pop up upon load - - - */
   $('#intro-modal').modal('show');
-  $('#trail-target').on('submit', submitClbk);
+  $('.updateButton').on('submit',function
+  (ev){
+
+    var id = $(this).attr('data-id');
+    var formData = $(this).serialize();
+      console.log(id, formData);
+
+  });
 
 }); //document closer TODO: remove before production
 
   /* - - - Ajax get call function - - - */
-function submitClbk(ev){
-  ev.preventDefault();
-  var id = $(this).attr('data-id');
-  console.log('id of trail object is >>', id);
-
-}
 
   function $getResults(){
     $.ajax({
@@ -93,7 +94,7 @@ function submitClbk(ev){
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'Click for information!'
+        title: 'hi!'
       })
       var contentString = '<p><b>'+ trailsIndex.name +'</b></p>';
       var infoString = '<p><b>'+ trailsIndex.comments +'</b></p>';
