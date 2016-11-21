@@ -1,5 +1,8 @@
 console.log("app.js is connected");
-var displayResults;
+var displayResults; // Global variable for difficulty setting via button
+var allTrails = [];
+var template;
+var $trailList;
 
 $(document)
   .ready(function(){
@@ -15,6 +18,12 @@ $(document)
     initMap();
   });
 
+  //gets form Data TEMP
+  $('#comment-form form').on('submit', function (e) {
+    e.preventDefault();
+    var temp = $(this).text
+  })
+
   initMap(); // NOTE Casey, let's comment this to tell what it does
 
   /* - - - Modal button action selecting beginner trails - - - */
@@ -24,12 +33,14 @@ $(document)
     $getResults();
   });
 
+  /* - - - Modal button action selecting intermediate trails - - - */
   $('#intermediate-btn').on('click', function () {
     displayResults = 'intermediate';
     $('#intro-modal').modal('hide');
     $getResults();
   });
 
+  /* - - - Modal button action selecting hardcore trails - - - */
   $('#hardcore-btn').on('click', function () {
     displayResults = 'Hardcore';
     $('#intro-modal').modal('hide');
@@ -38,21 +49,74 @@ $(document)
 
   /* - - - Intro modal pop up upon load - - - */
   $('#intro-modal').modal('show');
-  $('#trail-target').on('submit', submitClbk);
 
+  /* - - - ADMIN JS - - - */
+  $trailList = $('#trail-target');
+
+  /* - - - Handlebars  - - - */
+  var source = $('#admin-result-template').html();
+  template = Handlebars.compile(source);
+
+  /* - - - Populates page with trail data - - - */
+  $.ajax({
+    method: 'GET',
+    url: '/api/trails',
+    type: 'jsonData',
+    success: adminHandleSuccess,
+    error: handleError
+  });
+
+  /* - - - Submit new trail form - - - */
+  $('#newTrailForm').on('submit', function(e) {
+    var formData = $(this).serialize();
+    console.log('formData', formData);
+    $.post('/api/trails', formData, function (trail) {
+      console.log('trail after POST', trail);
+      renderPage();
+    });
+    $(this).trigger("reset");
+  });
+
+  $('.button').on('click','.deleteBtn', function(ev){
+  ev.preventDefault();
+  var id = $(this).attr('data-id');
+  console.log(id);
+
+  $.ajax({
+    method: 'DELETE',
+    url: "/api/trails/" +$(this).attr('data-id'),
+    success: deleteTrailSuccess,
+    error: deleteError
+  });
+});
+function deleteError(xhr, status, errorThrown){
+  console.log('Your delete error has been thrown.');
+  console.log(xhr)
+  console.log(errorThrown)
+}
+
+//Rewrite function
+function deleteTrailSuccess(json){
+  var deleteTrail = json;
+  var trailId = deleteTrail._id;
+  console.log('delete trail>>', trailId);
+
+  for(var i = 0; i < allTrails.length; i++) {
+    if(allTrials.trails[i]._id === trailId) {
+      allTrails.splice(i, 1);
+      // break;
+    }
+  }
+  renderPage();
+}
+
+//deletebtn closer
+  /* - - - END ADMIN JS - - - */
 
  }); //document closer TODO: remove before production
 
   /* - - - Ajax get call function - - - */
-
-function submitClbk(ev){
-  ev.preventDefault();
-  var id = $(this).attr('data-id');
-  console.log('id of trail object is >>', id);
-
-}
-
-  function $getResults(){
+  function $getResults() {
     $.ajax({
       method: 'GET',
       url: '/api/trails',
@@ -67,7 +131,7 @@ function submitClbk(ev){
  }
 
   /* - - - Sets pins on map - - - */
-    var map;
+  var map;
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 37.78, lng: -122.44},
@@ -75,9 +139,9 @@ function submitClbk(ev){
      });
    }
 
-   /* - - - Success function for individual difficulty level - - - */
+
+  /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
-    console.log(jsonData.trails[3].comments[0].comments);
     var trails = jsonData.trails;
     var targetTrails = [];
     for ( var i = 0; i < trails.length; i++ ){
@@ -96,25 +160,7 @@ function submitClbk(ev){
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'Click for information!'
-      })
-      var contentString = '<p><b>'+ trailsIndex.name +'</b></p>';
-      var infoString = '<p><b>'+ trailsIndex.comments +'</b></p>';
-
-      // var info = new google.maps.InfoWindow({
-      //     content: infoString
-      // })
-      var infowindow = new google.maps.InfoWindow({
-          content: contentString
-      });
-      // marker.addListener('click', function() {
-      //   info.open(map, marker);
-      // });
-      marker.addListener('mouseover', function() {
-        infowindow.open(map, marker);
-      });
-      marker.addListener('mouseout', function() {
-        infowindow.close(map, marker);
+        title: 'Hello World!'
       })
     });
   }
@@ -126,15 +172,68 @@ function submitClbk(ev){
     $('#trail-target').prepend(trail);
   }
 
+  /* - - - ADMIN JS FUNCTIONS- - - */
+  // function deleteError(xhr, status, errorThrown){
+  //   console.log('Your delete error has been thrown.');
+  //   console.log(xhr)
+  //   console.log(errorThrown)
+  // }
+  //
+  // function deleteTrailSuccess(json){
+  //   var deleteTrail = json;
+  //   var trailId = deleteTrail._id;
+  //   console.log('delete trail>>', trailId);
+  //
+  //   for(var i = 0; i < allTrails.length; i++) {
+  //     if(allTrials.trails[i]._id === trailId) {
+  //       allTrails.splice(i, 1);
+  //       break;
+  //     }
+  //   }
+  //   renderPage();
+  // }
+
+  function renderPage() {
+     $trailList.empty();
+     var trailHtml = template(allTrails);
+     $('#admin-trail-target').prepend(trailHtml);
+  }
+
+     /* - - - Success for ajax GET: trails call - - - */
+   function adminHandleSuccess(json) {
+     allTrails = json;
+     console.log('allTrails = ', allTrails.trails[4]);
+     renderPage();
+  }
+
+    /* - - -Error handler - - - */
+    function handleError (err) {
+      console.log(err);
+    }
+
+    /* - - - Trail create success - - - */
+    function createSuccess (json) {
+      $('#newTrailForm input').val();
+      allTrails.push(json);
+      renderPage();
+    }
+
+  /* - - - END ADMIN JS FUNCTIONS- - - */
+
   /* - - - Playing around with comment submit button  - - - */
-  function getComment(trailcode) {
-    trailcode.preventDefault();
+  function getComment(trailCode) {
+    // trailCode.preventDefault();
     var newComment;
     /* Using switch statment to handle each case, will find better way once it is working */
     switch (trailCode) {
       case 'alameda':
+          postComments();
           newComment = document.getElementById(trailCode).value;
           console.log("switch out put is alameda:" + newComment);
+          console.log("awesome");
+          var i = 0
+            console.log( i + 33);
+
           break;
       case 'chabot':
           newComment = document.getElementById(trailCode).value;

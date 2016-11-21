@@ -24,7 +24,7 @@ function index(req, res) {
 
   // DELETE /api/trails/:id
   function destroy (req,res) {
-    console.log(req.body)
+    console.log('HELLO from the controller side');
     db.Trail.findOneAndRemove({ _id: req.params.id }, function (err, foundTrail) {
       console.log('delet test >> ', foundTrail);
       res.json(foundTrail);
