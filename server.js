@@ -11,6 +11,10 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/admin', function homepage (req, res) {
+ res.sendFile(__dirname + '/views/admin.html');
+});
+
 // Json API endpoints
 app.get('/api', controllers.api.index);
 app.get('/api/trails', controllers.trails.index);
