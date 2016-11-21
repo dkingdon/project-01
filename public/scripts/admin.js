@@ -1,4 +1,4 @@
-console.log("admin js connected");
+console.log("admin.js connected");
 var allTrails = [];
 var template;
 var $trailList;
@@ -24,15 +24,13 @@ $(document)
     /* - - - Submit new trail form - - - */
     $('#newTrailForm').on('submit', function(e) {
       var formData = $(this).serialize();
-      console.log('formData', formData);
+      console.log('formData >>', formData);
       $.post('/api/trails', formData, function (trail) {
         console.log('trail after POST', trail);
         renderPage();
       });
       $(this).trigger("reset");
     });
-
-
 
     $('.button').on('click','.deleteBtn', function(ev){
     ev.preventDefault();
@@ -41,7 +39,7 @@ $(document)
 
     $.ajax({
       method: 'DELETE',
-      url: "/api/trails/"+$(this).attr('data-id'),
+      url: "/api/trails/" +$(this).attr('data-id'),
       success: deleteTrailSuccess,
       error: deleteError
     });
@@ -63,7 +61,7 @@ function deleteTrailSuccess(json){
   for(var i = 0; i < allTrails.length; i++) {
     if(allTrials.trails[i]._id === trailId) {
       allTrails.splice(i, 1);
-      break;
+      // break;
     }
   }
   renderPage();
@@ -75,42 +73,19 @@ function renderPage() {
    var trailHtml = template(allTrails);
    $('#trail-target').prepend(trailHtml);
 }
-
    /* - - - Success for ajax GET: trails call - - - */
  function handleSuccess(json) {
    allTrails = json;
-   console.log('allTrails = ', allTrails.trails[4]);
+  //  console.log('allTrails = ', allTrails.trails[4]);
    renderPage();
 }
-
   /* - - -Error handler - - - */
   function handleError (err) {
     console.log(err);
   }
-
   /* - - - Trail create success - - - */
   function createSuccess (json) {
     $('#newTrailForm input').val();
     allTrails.push(json);
     renderPage();
   }
-
-
-  // /* - - - Handle Delete - - - */
-  // function handleDeleteClick(data) {
-  //   var trailId = $(this).data('data-id');
-  //   console.log(trailId);
-  //   console.log('deleting ', trailId);
-  //   $.ajax({
-  //     method: 'DELETE',
-  //     url: '/api/trails/' + trailId,
-  //     success: handleDeleteSuccess
-  //   });
-  // }
-  //
-  // /* - - - Handle Delete - - - */
-  // function handleDeleteSuccess(data) {
-  //   var deletedTrailId = data.id;
-  //   console.log('deleting ', deletedTrailId);
-  //   $('div[data-id=' + deletedTrailId +']').remove();
-  // }
