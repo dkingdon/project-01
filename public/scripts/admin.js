@@ -33,7 +33,7 @@ $(document)
     });
 
 
-    // ajax will go here
+
     $('.button').on('click','.deleteBtn', function(ev){
     ev.preventDefault();
     var id = $(this).attr('data-id');
@@ -44,7 +44,7 @@ $(document)
       url: "api/trails/"+$(this).attr('data-id'),
       success: deleteTrailSuccess,
       error: deleteError
-    }); //ajax closer
+    }); 
   }); //deletebtn closer
 
 }); //document closer TODO: remove before production
@@ -56,11 +56,11 @@ function deleteError(){
 function deleteTrailSuccess(json){
   var deleteTrail = json;
   var trailId = deleteTrail._id;
-  console.log('delete book', trailId);
+  console.log('delete trail>>', trailId);
 
-  for(var index = 0; index < allTrails.length; index++) {
-    if(allTrials.trails[index]._id === trailId) {
-      allTrails.splice(index, 1);
+  for(var index = 0; index < allTrails.length; i++) {
+    if(allTrials.trails[i]._id === trailId) {
+      allTrails.splice(i, 1);
       break;
     }
   }
