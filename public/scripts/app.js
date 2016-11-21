@@ -15,6 +15,7 @@ $(document)
     initMap();
   });
 
+
   initMap(); // NOTE Casey, let's comment this to tell what it does
 
   /* - - - Modal button action selecting beginner trails - - - */
@@ -102,6 +103,7 @@ $(document)
     $('#trail-target').prepend(trail);
   }
 
+
   /* - - - Playing around with comment submit button  - - - */
   function getComment(trailCode) {
     // trailCode.preventDefault();
@@ -109,8 +111,13 @@ $(document)
     /* Using switch statment to handle each case, will find better way once it is working */
     switch (trailCode) {
       case 'alameda':
+          // postComments();
           newComment = document.getElementById(trailCode).value;
           console.log("switch out put is alameda:" + newComment);
+          console.log("awesome");
+          var i = 0
+            console.log( i + 33);
+
           break;
       case 'chabot':
           newComment = document.getElementById(trailCode).value;

@@ -12,7 +12,7 @@ var db = require("./models");
     experienceLevel: "Hardcore",
     latitude: 37.809706,
     longitude: -122.183235,
-    comments: "I like this place a lot, too many hikers though" // DK: TODO Temp, will replace with array
+    comments: ["I like this place a lot, too many hikers though"] // DK: TODO Temp, will replace with array
   },
   {
     name: 'Camp Tamarancho',
@@ -23,7 +23,7 @@ var db = require("./models");
     experienceLevel: 'Hardcore',
     latitude: 37.9932731,
     longitude: -122.6085054,
-    comments: "Physically demanding trails, but need to purchase a pass at local bike shop"
+    comments: ["Physically demanding trails, but need to purchase a pass at local bike shop"]
   },
   {
     name: 'Skeggs Point',

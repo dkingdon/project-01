@@ -10,7 +10,7 @@ var TrailSchema = new Schema({
     experienceLevel: String,
     latitude: Number,
     longitude: Number,
-    comments: String
+    comments: [ String ]
 });
 
 var Trail = mongoose.model('Trail', TrailSchema);
