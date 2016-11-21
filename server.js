@@ -20,13 +20,10 @@ app.get('/admin', function homepage (req, res) {
 // Json API endpoints
 app.get('/api', controllers.api.index);
 app.get('/api/trails', controllers.trails.index);
-<<<<<<< HEAD
 app.post('/api/trails', controllers.trails.create);
 app.delete('api/trails/:trailId', controllers.trails.destroy);
-=======
 app.get('/api/comments', controllers.userComments.index);
 
->>>>>>> 917657ed9586ca83578452c2b90b7ceaed49dbdd
 
 //Server listening on port 3000
 app.listen(process.env.PORT || 3000, function () {

@@ -1,11 +1,12 @@
 console.log("app.js is connected");
 var displayResults;
+var allTrails = [];
+var template;
+var $trailList;
 
 $(document)
   .ready(function(){
     console.log('DOM is ready!');
-
-<<<<<<< HEAD
 
   /* - - - Reset opening the modal again with new text - - - */
   $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
@@ -15,16 +16,6 @@ $(document)
     $('#trail-target').html(' ');
     initMap();
   });
-=======
-    /* - - - Reset opening the modal again with new text - - - */
-    $('#reset-btn').on('click', function(ev){ // NOTE not clearing map and reults tab
-      $('.modal-title').text('Change your mind?');
-      $('.modal-body').text("That's OK, we are here to help you find your next favorite trail")
-      $('#intro-modal').modal('show');
-      $('#trail-target').html(' ');
-      initMap();
-    });
->>>>>>> 917657ed9586ca83578452c2b90b7ceaed49dbdd
 
   initMap(); // NOTE Casey, let's comment this to tell what it does
 
@@ -51,6 +42,38 @@ $(document)
   $('#intro-modal').modal('show');
   $('#trail-target').on('click', '.add-comment',submitClbk);
 
+
+  /* - - - Admin JS begin - - - */
+  $trailList = $('#trail-target');
+
+  /* - - - ADMIN Handlebars  - - - */
+  // var source = $('#result-template').html();
+  // template = Handlebars.compile(source);
+
+  /* - - - Populates page with trail data - - - */
+  $.ajax({
+    method: 'GET',
+    url: '/api/trails',
+    type: 'jsonData',
+    success: handleSuccess,
+    error: handleError
+  });
+
+  /* - - - Submit new trail form - - - */
+  $('#newTrailForm').on('submit', function (e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log('formData', formData);
+    $.post('/api/trails', formData, function (trail) {
+      console.log('trail after POST', trail);
+      renderPage();
+    });
+    $(this).trigger("reset");
+  });
+
+  /* - - - Delete trail - - - */
+  $('.delete-btn').on('click', handleDeleteClick);
+  /* - - - Admin JS End - - - */
 
  }); //document closer TODO: remove before production
 
@@ -139,6 +162,55 @@ function submitClbk(ev){
     trail = template(trail);
     $('#trail-target').prepend(trail);
   }
+
+  /* - - - Admin JS functions  - - - */
+  function renderPage() {
+    $trailList.empty();
+  /* - - - ADMIN Handlebars template variable  - - - */
+ //    var trailHtml = template(allTrails);
+ //    $('#trail-target').append(trailHtml);
+ // }
+
+    /* - - - Success for ajax GET: trails call - - - */
+  function handleSuccess(json) {
+    allTrails = json;
+    console.log('allTrails = ', json); // NOTE: temp to see what the output is
+    renderPage();
+ }
+
+   /* - - -Error handler - - - */
+   function handleError (err) {
+     console.log(err);
+   }
+
+   /* - - - Trail create success - - - */
+   function createSuccess (json) {
+     $('#newTrailForm input').val();
+     allTrails.push(json);
+     renderPage();
+   }
+
+   /* - - - Handle Delete - - - */
+   function handleDeleteClick(data) {
+     var trailId = $(this).parents('.frame-info').data('data-id');
+     console.log('deleting ', trailId);
+     $.ajax({
+       method: 'DELETE',
+       url: '/api/trails/' + trailId,
+       success: handleDeleteSuccess
+     });
+   }
+
+   /* - - - Handle Delete - - - */
+   function handleDeleteSuccess(data) {
+     var deletedTrailId = data.id;
+     console.log('deleting ', deletedTrailId);
+     $('div[data-id=' + deletedTrailId +']').remove();
+   }
+
+  /* - - - END Admint js functions - - - */
+
+
 
   /* - - - Playing around with comment submit button  - - - */
   function getComment(trailCode) {
