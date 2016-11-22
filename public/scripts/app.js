@@ -38,20 +38,24 @@ $(document)
 
   /* - - - Intro modal pop up upon load - - - */
   $('#intro-modal').modal('show');
-  $('#trail-target').on('submit', submitClbk);
+
+  /* - - - User generated comment button handle click- - - */
+  $('#trail-target').on('submit', '#comment-form', submitClbk);
 
 
  }); //document closer TODO: remove before production
 
+
+  /* - - - User generated comment NOTE not done yet- - - */
+  function submitClbk(ev){
+    ev.preventDefault();
+    console.log($(this));
+    var commentId = $(this).closest('div').attr('data-id');
+    var newComment = $(this).closest('div').find('input').prop('value');
+    console.log('id of trail object is >>', commentId);
+    console.log('comment conted is >>', newComment);
+  }
   /* - - - Ajax get call function - - - */
-
-function submitClbk(ev){
-  ev.preventDefault();
-  var id = $(this).attr('data-id');
-  console.log('id of trail object is >>', id);
-
-}
-
   function $getResults(){
     $.ajax({
       method: 'GET',
@@ -98,18 +102,12 @@ function submitClbk(ev){
         map: map,
         title: 'Click for information!'
       })
+      /* - - - Strings for populating  map- - - */
       var contentString = '<p><b>'+ trailsIndex.name +'</b></p>';
-      var infoString = '<p><b>'+ trailsIndex.comments +'</b></p>';
-
-      // var info = new google.maps.InfoWindow({
-      //     content: infoString
-      // })
       var infowindow = new google.maps.InfoWindow({
           content: contentString
       });
-      // marker.addListener('click', function() {
-      //   info.open(map, marker);
-      // });
+      /* - - - Mouseover listeners - - - */
       marker.addListener('mouseover', function() {
         infowindow.open(map, marker);
       });

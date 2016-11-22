@@ -62,33 +62,33 @@
         <div id="trail-target" class="col-md-4">
         </div>
         <script id="result-template" type="text/x-handlebars-template">
-          <h3>{{name}}</h3>
-          <p><strong>Rating: </strong>{{rating}}</p>
-          <p><strong>Popular Trail: </strong>{{popularTrail}}</p>
-          <p><strong>Address: </strong> {{address}}</p>
-          <p><strong>Comments:</strong>
-            <form id="comment-form">
-              <div class="form-group">
-                <input type="text" data-id={{_id}} class="form-control add-comment" id="{{trailCode}}" placeholder="Leave a comment">
-              </div>
-              <button type="submit" style="visibility:hidden" onclick='getComment({{trailCode}}.id)' class="btn btn-default btn-xs">Update</button>
-            </form>
-            <br/>
-            <em>{{#each comments}}{{this.comments}}{{/each}}</em>
-          </p>
-          <div class="underline"></div>
-          </script>
-          <div class="col-md-8">
-          <div id="map">
+          <div class="trail" data-id={{_id}}>
+            <h3>{{name}}</h3>
+            <p><strong>Rating: </strong>{{rating}}</p>
+            <p><strong>Popular Trail: </strong>{{popularTrail}}</p>
+            <p><strong>Address: </strong> {{address}}</p>
+            <p><strong>Comments:</strong>
+              <form id="comment-form">
+                <div class="form-group">
+                  <input type="text" class="form-control add-comment" id="{{trailCode}}" placeholder="Leave a comment">
+                </div>
+                <button type="submit" style="visibility:hidden" class="btn btn-default btn-xs">Update</button>
+              </form>
+              <br/>
+              <em>{{comments}}</em>
+            </p>
+            <div class="underline"></div>
           </div>
-       </div>
-
-     </hr>
-  </div>
-    <footer>
-      <p>Bay Area Trail Finder &copy; Danksey 2016</p>
-    </footer>
-  </div>
-<!-- remvoe the line above -->
+        </script>
+          <div class="col-md-8">
+            <div id="map">
+            </div>
+         </div>
+       </hr>
+    </div>
+      <footer>
+        <p>Bay Area Trail Finder &copy; Danksey 2016</p>
+      </footer>
+    </div>
   </body>
 </html>

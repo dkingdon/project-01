@@ -33,9 +33,8 @@ $(document)
     });
 
 
-
+    /* - - - Delete Trail from Admin page - - - */
     $('.button').on('click','.deleteBtn', function(ev){
-    ev.preventDefault();
     var id = $(this).attr('data-id');
     console.log(id);
 
@@ -49,68 +48,48 @@ $(document)
 
 }); //document closer TODO: remove before production
 
-function deleteError(xhr, status, errorThrown){
-  console.log('Your delete error has been thrown.');
-  console.log(xhr)
-  console.log(errorThrown)
-}
+  function deleteError(xhr, status, errorThrown){
+    console.log('Your delete error has been thrown.');
+    console.log(xhr)
+    console.log(errorThrown)
+  }
 
-function deleteTrailSuccess(json){
-  var deleteTrail = json;
-  var trailId = deleteTrail._id;
-  console.log('delete trail>>', trailId);
+  function deleteTrailSuccess(json){
+    var deleteTrail = json;
+    var trailId = deleteTrail._id;
+    console.log('delete trail>>', trailId);
 
-  for(var i = 0; i < allTrails.length; i++) {
-    if(allTrials.trails[i]._id === trailId) {
-      allTrails.splice(i, 1);
-      break;
+    for(var i = 0; i < allTrails.length; i++) {
+      if(allTrials.trails[i]._id === trailId) {
+        allTrails.splice(i, 1);
+        break;
+      }
     }
-  }
-  renderPage();
-}
-
-
-function renderPage() {
-   $trailList.empty();
-   var trailHtml = template(allTrails);
-   $('#trail-target').prepend(trailHtml);
-}
-
-   /* - - - Success for ajax GET: trails call - - - */
- function handleSuccess(json) {
-   allTrails = json;
-   console.log('allTrails = ', allTrails.trails[4]);
-   renderPage();
-}
-
-  /* - - -Error handler - - - */
-  function handleError (err) {
-    console.log(err);
-  }
-
-  /* - - - Trail create success - - - */
-  function createSuccess (json) {
-    $('#newTrailForm input').val();
-    allTrails.push(json);
     renderPage();
   }
 
 
-  // /* - - - Handle Delete - - - */
-  // function handleDeleteClick(data) {
-  //   var trailId = $(this).data('data-id');
-  //   console.log(trailId);
-  //   console.log('deleting ', trailId);
-  //   $.ajax({
-  //     method: 'DELETE',
-  //     url: '/api/trails/' + trailId,
-  //     success: handleDeleteSuccess
-  //   });
-  // }
-  //
-  // /* - - - Handle Delete - - - */
-  // function handleDeleteSuccess(data) {
-  //   var deletedTrailId = data.id;
-  //   console.log('deleting ', deletedTrailId);
-  //   $('div[data-id=' + deletedTrailId +']').remove();
-  // }
+  function renderPage() {
+     $trailList.empty();
+     var trailHtml = template(allTrails);
+     $('#trail-target').prepend(trailHtml);
+  }
+
+     /* - - - Success for ajax GET: trails call - - - */
+   function handleSuccess(json) {
+     allTrails = json;
+     console.log('allTrails = ', allTrails.trails[4]);
+     renderPage();
+  }
+
+    /* - - -Error handler - - - */
+    function handleError (err) {
+      console.log(err);
+    }
+
+    /* - - - Trail create success - - - */
+    function createSuccess (json) {
+      $('#newTrailForm input').val();
+      allTrails.push(json);
+      renderPage();
+    }
