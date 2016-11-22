@@ -116,70 +116,10 @@ $(document)
       })
     });
   }
-
+  
   function renderTrails(trail){
     var source = $('#result-template').html(),
     template = Handlebars.compile(source),
     trail = template(trail);
     $('#trail-target').prepend(trail);
   }
-
-  /* - - - Playing around with comment submit button  - - - */
-  function getComment(trailcode) {
-    trailcode.preventDefault();
-    var newComment;
-    /* Using switch statment to handle each case, will find better way once it is working */
-    switch (trailCode) {
-      case 'alameda':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is alameda:" + newComment);
-          break;
-      case 'chabot':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is chabot:" + newComment);
-          break;
-      case 'angel':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is angel:" + newComment);
-          break;
-      case 'joaquin':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is joaquin:" + newComment);
-          break;
-      case 'tamarancho':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is tamarancho:" + newComment);
-          break;
-      case 'skeggs':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is skeggs:" + newComment);
-          break;
-      case 'demo':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is demo:" + newComment);
-          break;
-      case 'redwood':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is redwood:" + newComment);
-          break;
-      case 'annadel':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is annadel:" + newComment);
-          break;
-      case 'chinaCamp':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is chinaCamp:" + newComment);
-          break;
-      case 'rockville':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is rockville:" + newComment);
-          break;
-      case 'santaTeresa':
-          newComment = document.getElementById(trailCode).value;
-          console.log("switch out put is santaTeresa:" + newComment);
-          break;
-      default:
-          break;
-    }
-  }
-  // NOTE maybe switchstatement. Also, need a way to clear text field upon submitting
