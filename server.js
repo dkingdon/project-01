@@ -16,7 +16,6 @@ app.get('/admin', function homepage (req, res) {
 
 
 
-
 // JSON API endpoints
 app.get('/api', controllers.api.index);
 app.get('/api/trails', controllers.trails.index);
