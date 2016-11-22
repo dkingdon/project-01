@@ -43,7 +43,7 @@ $(document)
       success: deleteTrailSuccess,
       error: deleteError
     });
-  }); //deletebtn closer
+  }); 
 
 });
 

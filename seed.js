@@ -2,9 +2,7 @@
 var db = require("./models");
 
   /* - - - Temp Hardcoded Trail Data - - - */
-
   var trailsList = [{
-
     name: 'Joaquin Miller Park',
     trailCode: 'joaquin',
     rating: 4.5,
@@ -13,7 +11,7 @@ var db = require("./models");
     experienceLevel: "Hardcore",
     latitude: 37.809706,
     longitude: -122.183235,
-
+    comments: ["I like this place a lot, too many hikers though"]
   },
   {
     name: 'Camp Tamarancho',
@@ -24,7 +22,7 @@ var db = require("./models");
     experienceLevel: 'Hardcore',
     latitude: 37.9932731,
     longitude: -122.6085054,
-    comments: "Physically demanding trails, but need to purchase a pass at local bike shop"
+    comments: ["Physically demanding trails, but need to purchase a pass at local bike shop"]
   },
   {
     name: 'Skeggs Point',
@@ -35,7 +33,7 @@ var db = require("./models");
     experienceLevel: 'intermediate',
     latitude: 37.4010377,
     longitude: -122.3125133,
-
+    comments: ["Park mixed with both smooth and technical trails"]
   },
   {
     name: 'Demo Forest',
@@ -46,7 +44,7 @@ var db = require("./models");
     experienceLevel: 'Hardcore',
     latitude: 37.0824064,
     longitude: -121.8550676,
-
+    comments: ["Epic flow trail that goes on for days. One of the bay's best rides"]
   },
   {
     name: 'Angel Island State Park',
@@ -56,8 +54,8 @@ var db = require("./models");
     popularTrail: 'Sunset Trail',
     experienceLevel: 'beginner',
     latitude: 37.868623,
-    longitude: -122.434567
-
+    longitude: -122.434567,
+    comments: ["Fun ride for the whole family. Note that you need to take the ferry to the island"]
   },
   {
     name: 'Redwood Regional Park',
@@ -67,8 +65,8 @@ var db = require("./models");
     popularTrail: 'Stream Trail',
     experienceLevel: 'beginner',
     latitude: 37.8198206,
-    longitude: -122.1727039
-
+    longitude: -122.1727039,
+    comments: ["There are a lot of trails in this park, mostly fireroads. Popular family hiking location"]
   },
   {
     name: 'Annadel State Park',
@@ -78,8 +76,8 @@ var db = require("./models");
     popularTrail: 'Burna Trail',
     experienceLevel: 'intermediate',
     latitude: 38.4565992,
-    longitude: -122.6408547
-
+    longitude: -122.6408547,
+    comments: ["Physically challenging ride. Bring plenty of water"]
   },
   {
     name: 'Lake Chabot Park',
@@ -89,8 +87,8 @@ var db = require("./models");
     popularTrail: 'Brandon Trail',
     experienceLevel: 'beginner',
     latitude: 37.7166066,
-    longitude: -122.1029251
-
+    longitude: -122.1029251,
+    comments: ["Fun ride, all fireroads and some paved paths around the lake"]
   },
   {
     name: 'China Camp',
@@ -100,8 +98,8 @@ var db = require("./models");
     popularTrail: 'Bay View Trail',
     experienceLevel: 'intermediate',
     latitude: 38.0066978,
-    longitude: -122.4961469
-
+    longitude: -122.4961469,
+    comments: ["Short fun ride, would recommend counter clockwise loop"]
   },
   {
     name: 'Alameda Creek',
@@ -111,8 +109,8 @@ var db = require("./models");
     popularTrail: "Alameda Creek",
     experienceLevel: 'beginner',
     latitude: 37.5794513,
-    longitude: -121.9679912
-
+    longitude: -121.9679912,
+    comments: ["Fun ride for the family and casual biker"]
   },
   {
     name: 'Rockville Hills',
@@ -122,7 +120,8 @@ var db = require("./models");
     popularTrail: 'Mystic Ridge',
     experienceLevel: 'Hardcore',
     latitude: 38.2452069,
-    longitude: -122.1428958
+    longitude: -122.1428958,
+    comments: ["Just like the name suggests, this place is full of technical rocky trails"]
 
   },
   {
@@ -133,28 +132,13 @@ var db = require("./models");
     popularTrail: 'Ohlone Trail',
     experienceLevel: 'intermediate',
     latitude: 37.2196646,
-    longitude: -121.7790788
-
+    longitude: -121.7790788,
+    comments: ["Best place in San Jose to ride!!"]
   }
 ];
 
-  //   var userCommentsList = [{
-  //     name: 'Casey Oneal',
-  //     comment: 'This app is great!'
-  //   }
-  // ];
 
-  var comments = [];
-    comments.push({
-    comments: "Some text"
-  });
-
-  trailsList.forEach(function(arr) {
-    arr.comments = comments ;
-  });
-
-
-/* - - - Removes Trails from the db and replaces with seed info- - - */
+  /* - - - Removes Trails from the db and replaces with seed info- - - */
   db.Trail.remove({}, function( err, trails ) {
     db.Trail.create(trailsList, function( err, trails) {
       if (err) { console.log(err); }
@@ -162,6 +146,8 @@ var db = require("./models");
     })
   })
 
+
+  /* - - - Leaving in code and commented out as WIP - - - */
   // db.UserComments.remove({}, function( err, comments ) {
   //   db.UserComments.create(userCommentsList, function( err, comments) {
   //     if (err) { console.log(err); }

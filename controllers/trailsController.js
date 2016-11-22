@@ -9,7 +9,6 @@ function index(req, res) {
    });
   }
 
-
   //POST /api/trails
   function create( req, res ) {
     console.log('body', req.body);
