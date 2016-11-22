@@ -24,7 +24,7 @@ $(document)
     /* - - - Submit new trail form - - - */
     $('#newTrailForm').on('submit', function(e) {
       var formData = $(this).serialize();
-      console.log('formData >>', formData);
+      console.log('formData >> ', formData);
       $.post('/api/trails', formData, function (trail) {
         console.log('trail after POST', trail);
         renderPage();
@@ -45,7 +45,7 @@ $(document)
     });
   }); //deletebtn closer
 
-}); //document closer TODO: remove before production
+});
 
 function deleteError(xhr, status, errorThrown){
   console.log('Your delete error has been thrown.');
@@ -56,12 +56,12 @@ function deleteError(xhr, status, errorThrown){
 function deleteTrailSuccess(json){
   var deleteTrail = json;
   var trailId = deleteTrail._id;
-  console.log('delete trail>>', trailId);
+  console.log('delete trail>> ', trailId);
 
   for(var i = 0; i < allTrails.length; i++) {
     if(allTrials.trails[i]._id === trailId) {
       allTrails.splice(i, 1);
-      // break;
+      break;
     }
   }
   renderPage();
@@ -76,16 +76,16 @@ function renderPage() {
    /* - - - Success for ajax GET: trails call - - - */
  function handleSuccess(json) {
    allTrails = json;
-  //  console.log('allTrails = ', allTrails.trails[4]);
    renderPage();
 }
   /* - - -Error handler - - - */
-  function handleError (err) {
+function handleError (err) {
     console.log(err);
-  }
+}
+
   /* - - - Trail create success - - - */
-  function createSuccess (json) {
-    $('#newTrailForm input').val();
+function createSuccess (json) {
+  $('#newTrailForm input').val();
     allTrails.push(json);
     renderPage();
-  }
+}
