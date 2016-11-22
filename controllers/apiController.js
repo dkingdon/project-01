@@ -7,7 +7,7 @@ function index(req, res) {
       {method: "GET", path: "/api", description: ""},
       {method: "GET", path: "/api/trails", description: ""},
       {method: "POST", path: "/api/trails", description: ""},
-      {method: "POST", path: "/api/comments", description: ""},
+      {method: "PUT", path: "/api/comments", description: ""},
       {method: "DELETE", path: "/api/trails", description: ""}
     ]
   });
