@@ -4,11 +4,11 @@ function index(req, res) {
     documentation_url: null,
     base_url: null,
     endpoints: [
-      {method: "GET", path: "/api", description: ""},
-      {method: "GET", path: "/api/trails", description: ""},
-      {method: "POST", path: "/api/trails", description: ""},
-      {method: "PUT", path: "/api/comments", description: ""},
-      {method: "DELETE", path: "/api/trails", description: ""}
+      {method: "GET", path: "/api", description: "Api description"},
+      {method: "GET", path: "/api/trails", description: "Fetches trail data for 12 hardcoded trails and any addition trails created"},
+      {method: "POST", path: "/api/trails", description: "Creates new trail object"},
+      {method: "PUT", path: "/api/comments", description: "Updates trail object comments array"},
+      {method: "DELETE", path: "/api/trails", description: "Deletes trail objects"}
     ]
   });
 }

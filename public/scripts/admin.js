@@ -35,6 +35,7 @@ $(document)
 
     /* - - - Delete Trail from Admin page - - - */
     $('.button').on('click','.deleteBtn', function(ev){
+    ev.preventDefault();
     var id = $(this).attr('data-id');
     console.log(id);
 
