@@ -116,7 +116,7 @@ $(document)
       })
     });
   }
-  
+
   function renderTrails(trail){
     var source = $('#result-template').html(),
     template = Handlebars.compile(source),

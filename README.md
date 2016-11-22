@@ -1,6 +1,6 @@
 # project-01
 ##Bay Area: Trail Finder
-* Heroku link here once identified
+* https://powerful-gorge-38317.herokuapp.com/ 
 
 # Goals
 ### Site
@@ -14,7 +14,7 @@
 * Visual Design Use Twitter Bootstrap, Foundation, Skeleton, or another CSS framework to make your front-end visually pleasing.
 * Heroku Deploy your app to Heroku.
 ### Planning
-* Project Plan - https://docs.google.com/drawings/d/1t_dU_ShYptctj8sOF-k3jUxaI9KY12-OxG5Ve2ahP8E/edit 
+* Project Plan - https://docs.google.com/drawings/d/1t_dU_ShYptctj8sOF-k3jUxaI9KY12-OxG5Ve2ahP8E/edit
 * Clearly defined Minimum Viable Product (MVP) Scope.
 Wireframes for every page. These don't have to be pretty; just sketch what the page will include.
 * User Stories
