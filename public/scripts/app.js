@@ -15,7 +15,7 @@ $(document)
     initMap();
   });
 
-  initMap(); // NOTE Casey, let's comment this to tell what it does
+  initMap();
 
   /* - - - Modal button action selecting beginner trails - - - */
   $('#beginner-btn').on('click', function () {
@@ -81,7 +81,6 @@ $(document)
 
    /* - - - Success function for individual difficulty level - - - */
   function handleSuccess(jsonData){
-    console.log(jsonData.trails[3].comments[0].comments);
     var trails = jsonData.trails;
     var targetTrails = [];
     for ( var i = 0; i < trails.length; i++ ){

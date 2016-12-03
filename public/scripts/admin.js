@@ -42,9 +42,9 @@ $(document)
     $.ajax({
       method: 'DELETE',
       url: "/api/trails/"+$(this).attr('data-id'),
-      success: deleteTrailSuccess,
       error: deleteError
     });
+    $(this).closest('.frame-info').remove()
   }); //deletebtn closer
 
 }); //document closer TODO: remove before production
@@ -54,21 +54,6 @@ $(document)
     console.log(xhr)
     console.log(errorThrown)
   }
-
-  function deleteTrailSuccess(json){
-    var deleteTrail = json;
-    var trailId = deleteTrail._id;
-    console.log('delete trail>>', trailId);
-
-    for(var i = 0; i < allTrails.length; i++) {
-      if(allTrials.trails[i]._id === trailId) {
-        allTrails.splice(i, 1);
-        break;
-      }
-    }
-    renderPage();
-  }
-
 
   function renderPage() {
      $trailList.empty();
