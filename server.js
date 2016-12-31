@@ -1,16 +1,16 @@
 var express = require('express');
-var cors = require('cors')
 var app = express();
 var bodyParser = require('body-parser');
 var controllers = require('./controllers');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
-app.use(cors())
+
 
 // HTML endpoints
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
 app.get('/admin', function homepage (req, res) {
   res.sendFile(__dirname + '/views/admin.html');
 });
